@@ -1,4 +1,4 @@
-# junkcoin-web-wallet
+# Web Wallet (junkcoin-web-wallet)
 This repository contains the codebase for the official Junkcoin web wallet. The web wallet allows users to securely store, send, and receive Junkcoin ($JKC) directly from their browsers.
 
 ## Features
