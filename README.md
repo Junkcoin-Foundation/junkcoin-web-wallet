@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/Junkcoin-Foundation/junkcoin-docs/blob/main/assets/logos/logo-junkcoin-horizontal-2500px.png" alt="Junkcoin Logo" width="350"/>
+</p>
+
 # JunkieWally ⛵️
 
 The first Web3 wallet for the Junkcoin ($JKC) blockchain - Your secure gateway to the JKC ecosystem.
