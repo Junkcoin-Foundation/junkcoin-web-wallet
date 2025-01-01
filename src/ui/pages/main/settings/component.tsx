@@ -26,11 +26,11 @@ const Settings = () => {
       label: t("settings.security_settings"),
       link: "/pages/security",
     },
-    // {
-    //   icon: <WalletIcon className={ICON_CN} />,
-    //   label: t("components.layout.wallet_settings"),
-    //   link: "/pages/wallet-settings",
-    // },
+    {
+      icon: <WalletIcon className={ICON_CN} />,
+      label: t("components.layout.wallet_settings"),
+      link: "/pages/wallet-settings",
+    },
     {
       icon: <PuzzlePieceIcon className={ICON_CN} />,
       label: t("settings.connected_sites"),

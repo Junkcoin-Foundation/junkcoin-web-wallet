@@ -4,7 +4,7 @@ import "reflect-metadata/lite";
 import permission from "@/background/services/permission";
 import apiController from "../apiController";
 import { INintondoProvider, NetworkType } from "nintondo-sdk";
-import { gptFeeCalculate } from "@/ui/utils";
+import { gptFeeCalculate, isTestnet } from "@/ui/utils";
 import { ethErrors } from "eth-rpc-errors";
 import walletController from "../walletController";
 
@@ -37,6 +37,14 @@ class ProviderController implements IProviderController {
   @Reflect.metadata("SAFE", true)
   getVersion = async () => {
     return process.env.VERSION ?? "0.0.1";
+  };
+
+  @Reflect.metadata("SAFE", true)
+  getNetwork = async (): Promise<NetworkType> => {
+    if (!storageService.appState.isReady) {
+      await storageService.init();
+    }
+    return isTestnet(storageService.appState.network) ? "testnet" : "mainnet";
   };
 
   @Reflect.metadata("CONNECTED", true)

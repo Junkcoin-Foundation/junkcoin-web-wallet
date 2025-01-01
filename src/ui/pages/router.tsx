@@ -36,6 +36,7 @@ import InscribeTransfer from "./provider/inscribe-transfer";
 import MultiPsbtSign from "./provider/multi-psbt-sign";
 import SignMessage from "./provider/sign-message";
 import SignPsbt from "./provider/sign-psbt";
+import NetworkSettings from "./main/settings/wallet/network";
 
 export const guestRouter = createHashRouter([
   {
@@ -81,6 +82,7 @@ export const authenticatedRouter = createHashRouter([
       { path: "inscription-details", element: <InscriptionDetails /> },
       { path: "inscriptions", element: <Inscriptions /> },
       { path: "wallet-settings", element: <WalletSettings /> },
+      { path: "network-settings", element: <NetworkSettings /> },
       {
         path: "bel-20",
         element: <TokensComponent />,

@@ -4,6 +4,7 @@ import "dayjs/locale/en";
 import "dayjs/locale/ru";
 import "dayjs/locale/zh-cn";
 import "dayjs/locale/ko";
+import "dayjs/locale/fr";
 import { useAppState } from "@/ui/states/appState";
 import { ss } from "@/ui/utils";
 
@@ -15,6 +16,7 @@ interface Props {
 
 const locales = {
   en: "en",
+  fr: "fr",
   ru: "ru",
   ch: "zh-cn",
   kr: "ko",
@@ -22,6 +24,7 @@ const locales = {
 
 const todayLocale = {
   en: "Today",
+  fr: "Aujourd'hui",
   ru: "Сегодня",
   ch: "今天",
   kr: "오늘",

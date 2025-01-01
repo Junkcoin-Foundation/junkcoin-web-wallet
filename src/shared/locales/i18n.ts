@@ -1,14 +1,19 @@
 import en from "./languages/en.json";
+import fr from "./languages/fr.json";
 import ru from "./languages/ru.json";
 import ch from "./languages/ch.json";
 import kr from "./languages/kr.json";
 import i18n from "i18next";
+import { initReactI18next } from 'react-i18next';
 
-export const defaultNS = "  ";
+export const defaultNS = "translation";
 
 export const resources = {
   en: {
     translation: en,
+  },
+  fr: {
+    translation: fr,
   },
   ru: {
     translation: ru,
@@ -21,13 +26,23 @@ export const resources = {
   },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
 i18n
-  // .use(reactI18nextModule)
+  .use(initReactI18next)
   .init({
     resources,
     lng: "en",
     fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+      format: function(value, format, lng) {
+        if (format === 'uppercase') return value.toUpperCase();
+        if (format === 'lowercase') return value.toLowerCase();
+        return value;
+      }
+    },
+    defaultNS,
+    ns: ["translation"],
+    fallbackNS: "translation"
   });
 
 export const isRTL = false;
@@ -52,5 +67,4 @@ export function getLanguages() {
   };
 }
 
-// Allow RTL alignment in RTL languages
 export default i18n;

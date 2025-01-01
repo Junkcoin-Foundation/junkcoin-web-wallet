@@ -1,3 +1,4 @@
+import { address, Network, networks } from "junkcoinjs-lib";
 import { Dispatch, SetStateAction, useCallback } from "react";
 import { useShallow } from "zustand/react/shallow";
 
@@ -83,4 +84,11 @@ export function isValidTXID(txid: string | undefined): boolean {
   if (typeof txid === "undefined") return false;
   const regex = /^[a-fA-F0-9]{64}$/;
   return regex.test(txid);
+}
+
+export function isTestnet(network: Network) {
+  return (
+    network.pubKeyHash === networks.testnet.pubKeyHash &&
+    network.scriptHash === networks.testnet.scriptHash
+  );
 }

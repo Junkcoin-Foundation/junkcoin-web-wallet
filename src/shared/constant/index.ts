@@ -1,3 +1,4 @@
+import { isTestnet } from "@/ui/utils";
 import { Network, networks } from "junkcoinjs-lib";
 import { AddressType } from "junkcoinhdw/src/hd/types";
 
@@ -12,6 +13,11 @@ export const IS_CHROME = /Chrome\//i.test(navigator.userAgent);
 export const IS_LINUX = /linux/i.test(navigator.userAgent);
 
 export const IS_WINDOWS = /windows/i.test(navigator.userAgent);
+
+export const NETWORKS: { name: string; network: Network }[] = [
+  { name: "MAINNET", network: networks.junkcoin },
+  { name: "TESTNET", network: networks.testnet },
+];
 
 export const ADDRESS_TYPES: {
   value: AddressType;
@@ -45,9 +51,15 @@ export const API_URL = "https://api.junkiewally.xyz";
 export const EXPLORER_URL = "https://junkpool.blockraid.io"
 export const SPLITTER_URL = JUNKCOIN_URL + "/belinals/splitter";
 
+export const TESTNET_API_URL = "https://testnet-api.junkiewally.xyz";
+export const TESTNET_EXPLORER_URL = "https://explorer-testnet.junk-coin.com"
+
 const CONTENT_URL =
   process.env.CONTENT_URL ?? "https://content.nintondo.io/api/pub";
 export const getContentUrl = () => CONTENT_URL;
+
+export const getApiUrl = (network: Network) =>
+  isTestnet(network) ? TESTNET_API_URL : API_URL;
 
 const HISTORY_URL =
   process.env.HISTORY_URL ?? "https://history.nintondo.io/pub";
