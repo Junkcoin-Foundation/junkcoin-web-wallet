@@ -7,14 +7,20 @@ export const getTransactionValue = (
   targetAddress: string,
   fixed: number = 2
 ) => {
+  console.debug('[getTransactionValue]', { targetAddress, fixed });
+  
   const outputsSum = transaction.vout
     .filter((i) => i.scriptpubkey_address === targetAddress)
     .reduce((acc, cur) => acc + cur.value, 0);
+  console.debug('[getTransactionValue] outputsSum:', outputsSum);
+
   const inputsSum = transaction.vin
     .filter((i) => i.prevout?.scriptpubkey_address === targetAddress)
     .reduce((acc, cur) => acc + cur.prevout!.value, 0);
+  console.debug('[getTransactionValue] inputsSum:', inputsSum);
 
   const value = Math.abs(outputsSum - inputsSum) / 10 ** 8;
+  console.debug('[getTransactionValue] final value:', value);
 
   if (value < 1) return parseFloat(value.toFixed(5)).toString();
   if (value < 100) {
@@ -27,34 +33,49 @@ export const isIncomeTx = (
   transaction: ITransaction,
   targetAddress: string
 ) => {
+  console.debug('[isIncomeTx]', { targetAddress });
+  
   const outputsSum = transaction.vout
     .filter((i) => i.scriptpubkey_address === targetAddress)
     .reduce((acc, cur) => acc + cur.value, 0);
+  console.debug('[isIncomeTx] outputsSum:', outputsSum);
+
   const inputsSum = transaction.vin
     .filter((i) => i.prevout?.scriptpubkey_address === targetAddress)
     .reduce((acc, cur) => acc + cur.prevout!.value, 0);
-  return outputsSum - inputsSum > 0;
+  console.debug('[isIncomeTx] inputsSum:', inputsSum);
+
+  const result = outputsSum - inputsSum > 0;
+  console.debug('[isIncomeTx] result:', result);
+  return result;
 };
 
 export const getScriptForAddress = (
   publicKey: Uint8Array,
   addressType: AddressType
 ) => {
-  switch (addressType) {
-    case AddressType.P2WPKH:
-      return payments.p2wpkh({ pubkey: Buffer.from(publicKey) }).output;
-    case AddressType.P2SH_P2WPKH:
-      return payments.p2sh({
-        redeem: payments.p2wpkh({ pubkey: Buffer.from(publicKey) }),
-      }).output;
-    case AddressType.P2PKH:
-      return payments.p2pkh({ pubkey: Buffer.from(publicKey) }).output;
-    case AddressType.P2TR:
-      return payments.p2tr({
-        internalPubkey: toXOnly(Buffer.from(publicKey)),
-      }).output;
-    default:
-      throw new Error("Invalid AddressType");
+  console.debug('[getScriptForAddress]', { addressType });
+  
+  try {
+    switch (addressType) {
+      case AddressType.P2WPKH:
+        return payments.p2wpkh({ pubkey: Buffer.from(publicKey) }).output;
+      case AddressType.P2SH_P2WPKH:
+        return payments.p2sh({
+          redeem: payments.p2wpkh({ pubkey: Buffer.from(publicKey) }),
+        }).output;
+      case AddressType.P2PKH:
+        return payments.p2pkh({ pubkey: Buffer.from(publicKey) }).output;
+      case AddressType.P2TR:
+        return payments.p2tr({
+          internalPubkey: toXOnly(Buffer.from(publicKey)),
+        }).output;
+      default:
+        throw new Error("Invalid AddressType");
+    }
+  } catch (error) {
+    console.error('[getScriptForAddress] error:', error);
+    throw error;
   }
 };
 

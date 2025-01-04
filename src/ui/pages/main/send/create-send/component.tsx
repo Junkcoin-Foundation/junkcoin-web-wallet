@@ -3,7 +3,7 @@ import SplitWarn from "@/ui/components/split-warn";
 import Switch from "@/ui/components/switch";
 import { useCreateJKCTxCallback } from "@/ui/hooks/transactions";
 import { useGetCurrentAccount } from "@/ui/states/walletState";
-import { normalizeAmount } from "@/ui/utils";
+import { getAddressType, normalizeAmount, ss } from "@/ui/utils";
 import cn from "classnames";
 import { t } from "i18next";
 import {
@@ -19,6 +19,7 @@ import AddressBookModal from "./address-book-modal";
 import AddressInput from "./address-input";
 import FeeInput from "./fee-input";
 import s from "./styles.module.scss";
+import { useAppState } from "@/ui/states/appState";
 
 interface FormType {
   address: string;
@@ -51,6 +52,7 @@ const CreateSend = () => {
   const [inscriptionTransaction, setInscriptionTransaction] =
     useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const { network } = useAppState(ss(["network"]));
 
   const send = async ({
     address,
@@ -60,13 +62,17 @@ const CreateSend = () => {
   }: FormType) => {
     try {
       setLoading(true);
-      const balance = Number(currentAccount?.balance ?? 0);
+      const balance = currentAccount?.balance ?? 0;
       const amount = parseFloat(amountStr);
 
-      if (amount < 0.00000001 && !inscriptionTransaction) {
+      if (typeof getAddressType(address, network) === "undefined") {
+        return toast.error(t("send.create_send.address_error"));
+      }
+
+      if ((Number.isNaN(amount) || amount < 1e-5) && !inscriptionTransaction) {
         return toast.error(t("send.create_send.minimum_amount_error"));
       }
-      if (!address || address.trim().length <= 0) {
+      if (address.trim().length <= 0) {
         return toast.error(t("send.create_send.address_error"));
       }
       if (feeRate % 1 !== 0) {
@@ -75,7 +81,7 @@ const CreateSend = () => {
       if (typeof feeRate !== "number" || !feeRate || feeRate < 1) {
         return toast.error(t("send.create_send.not_enough_fee_error"));
       }
-      if (amount > balance) {
+      if (amount > balance / 10 ** 8) {
         return toast.error(t("send.create_send.not_enough_money_error"));
       }
 
@@ -99,10 +105,11 @@ const CreateSend = () => {
           includeFeeInAmount
         );
       } catch (e) {
-        console.error(e);
-
-        if ((e as Error).message) {
-          toast.error((e as Error).message);
+        const error = e as Error;
+        if ("message" in error) {
+          toast.error(error.message);
+        } else {
+          console.error(e);
         }
       }
 
@@ -151,7 +158,7 @@ const CreateSend = () => {
             if (location.state.save) {
               setIsSaveAddress(true);
             }
-            if (currentAccount.balance! <= location.state.amount)
+            if (currentAccount.balance! / 10 ** 8 <= location.state.amount)
               setIncludeFeeLocked(true);
 
             return {
@@ -173,13 +180,21 @@ const CreateSend = () => {
   }, [location.state, setFormData, currentAccount]);
 
   const onAmountChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    console.log('Amount change event:', {
+      value: e.target.value,
+      accountExists: !!currentAccount,
+      accountAddress: currentAccount?.address,
+      accountBalance: currentAccount?.balance
+    });
+
     if (!currentAccount || !currentAccount.address || !currentAccount.balance)
       return;
+
     setFormData((prev) => ({
       ...prev,
       amount: normalizeAmount(e.target.value),
     }));
-    if (currentAccount.balance > Number(e.target.value)) {
+    if (currentAccount.balance! / 10 ** 8 > Number(e.target.value)) {
       setIncludeFeeLocked(false);
     } else {
       setIncludeFeeLocked(true);
@@ -195,7 +210,7 @@ const CreateSend = () => {
     if (currentAccount?.balance) {
       setFormData((prev) => ({
         ...prev,
-        amount: currentAccount.balance!.toString(),
+        amount: (currentAccount.balance! / 10 ** 8).toFixed(5),
         includeFeeInAmount: true,
       }));
       setIncludeFeeLocked(true);
@@ -204,7 +219,7 @@ const CreateSend = () => {
 
   return (
     <div className="flex flex-col justify-between w-full h-full">
-      <SplitWarn message="Some of your coins are locked in UTXOs with inscriptions. Use the Splitter service to unlock and access your coins." />
+      {/* <SplitWarn message="Some of your coins are locked in UTXOs with inscriptions. Use the Splitter service to unlock and access your coins." /> */}
       <form
         id={formId}
         className={cn("form", s.send)}
@@ -284,10 +299,10 @@ const CreateSend = () => {
         {!inscriptionTransaction && (
           <div className="flex justify-between py-2 px-4 mb-11">
             <div className="text-xs uppercase text-gray-400">{`${t(
-              "wallet_page.available_balance"
+              "wallet_page.amount_in_transaction"
             )}`}</div>
             <span className="text-sm font-medium">
-              {`${Number(currentAccount?.balance ?? 0).toFixed(5)} JKC`}
+              {`${((currentAccount?.balance ?? 0) / 10 ** 8).toFixed(8)} JKC`}
             </span>
           </div>
         )}

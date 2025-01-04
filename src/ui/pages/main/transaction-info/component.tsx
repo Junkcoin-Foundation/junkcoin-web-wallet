@@ -11,10 +11,12 @@ import { shortAddress } from "@/shared/utils/transactions";
 import toast from "react-hot-toast";
 import { t } from "i18next";
 import { useGetCurrentAccount } from "@/ui/states/walletState";
-import { EXPLORER_URL } from "@/shared/constant";
+import { EXPLORER_URL, TESTNET_EXPLORER_URL } from "@/shared/constant";
 import { useControllersState } from "@/ui/states/controllerState";
 import { ss } from "@/ui/utils";
 import { useTransactionManagerContext } from "@/ui/utils/tx-ctx";
+import { isTestnet } from "@/ui/utils";
+import { networks } from "junkcoinjs-lib";
 
 const TransactionInfo = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -30,8 +32,11 @@ const TransactionInfo = () => {
   );
 
   const onOpenExplorer = async () => {
+    const isOnTestnet = isTestnet(networks.testnet);
+    const explorerUrl = isOnTestnet ? TESTNET_EXPLORER_URL : EXPLORER_URL;
+    const txPath = isOnTestnet ? 'tx' : 'transaction';
     await browserTabsCreate({
-      url: `${EXPLORER_URL}/transaction/${txId}`,
+      url: `${explorerUrl}/${txPath}/${txId}`,
       active: true,
     });
   };

@@ -61,10 +61,10 @@ const AccountPanel = () => {
         ) : undefined}
       </div>
 
-      <SplitWarn
+      {/* <SplitWarn
         extraWidth
         message="Some of your coins are locked in UTXOs with inscriptions!"
-      />
+      /> */}
 
       <div className="flex gap-3 items-center">
         {currentWallet?.type === "root" ? (
