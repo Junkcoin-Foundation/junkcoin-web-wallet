@@ -1,5 +1,6 @@
 import { address, Network, networks } from "junkcoinjs-lib";
 import { Dispatch, SetStateAction, useCallback } from "react";
+import { AddressType } from "junkcoinhdw";
 import { useShallow } from "zustand/react/shallow";
 
 export const isNotification = (): boolean => {
@@ -36,54 +37,14 @@ export function gptFeeCalculate(
   return fee;
 }
 
-export function ss<T extends Record<string, any>, K extends keyof T = keyof T>(
-  keys: K[]
-) {
-  return useShallow((state: T) => {
-    return Object.fromEntries(keys.map((i) => [i, state[i]])) as Pick<T, K>;
-  });
-}
-
-export const useUpdateFunction = <T>(
-  onUpdate: Dispatch<SetStateAction<T[] | undefined>>,
-  retrieveFn: (address: string) => Promise<T[] | undefined>,
-  compareKey: keyof T
-) => {
-  return useCallback(
-    async (address: string, force = false) => {
-      const receivedItems = await retrieveFn(address);
-      if (receivedItems === undefined) return;
-
-      onUpdate((prev) => {
-        if ((prev?.length ?? 0) < 50 || force) return receivedItems;
-
-        const currentItemsKeys = new Set(prev!.map((f) => f[compareKey]));
-        const receivedItemsKeys = new Set(
-          receivedItems.map((f) => f[compareKey])
-        );
-        const intersection = currentItemsKeys.intersection(receivedItemsKeys);
-        const difference = receivedItemsKeys.difference(currentItemsKeys);
-
-        return [
-          ...receivedItems.filter((f) => difference.has(f[compareKey])),
-          ...prev!,
-        ].map((i) => {
-          if (intersection.has(i[compareKey])) {
-            return receivedItems.find((f) => f[compareKey] === i[compareKey])!;
-          } else {
-            return i;
-          }
-        });
-      });
-    },
-    [onUpdate, retrieveFn, compareKey]
+export function calcBalanceLength(balance: number) {
+  return balance.toFixed(
+    balance.toFixed(0).toString().length >= 4
+      ? 8 - balance.toFixed(0)?.toString().length < 0
+        ? 0
+        : 8 - balance.toFixed(0)?.toString().length
+      : 8
   );
-};
-
-export function isValidTXID(txid: string | undefined): boolean {
-  if (typeof txid === "undefined") return false;
-  const regex = /^[a-fA-F0-9]{64}$/;
-  return regex.test(txid);
 }
 
 export function isTestnet(network: Network) {
@@ -91,4 +52,38 @@ export function isTestnet(network: Network) {
     network.pubKeyHash === networks.testnet.pubKeyHash &&
     network.scriptHash === networks.testnet.scriptHash
   );
+}
+
+export function ss<T extends Record<string, any>, K extends keyof T = keyof T>(
+  keys: K[]
+) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  return useShallow((state: T) => {
+    return Object.fromEntries(keys.map((i) => [i, state[i]])) as Pick<T, K>;
+  });
+}
+
+export function isValidTXID(txid: string | undefined): boolean {
+  if (typeof txid === "undefined") return false;
+  const regex = /^[a-fA-F0-9]{64}$/;
+  return regex.test(txid);
+}
+
+export function getAddressType(
+  addressStr: string,
+  network: Network
+): AddressType.P2WPKH | AddressType.P2PKH | AddressType.P2TR | undefined {
+  try {
+    const version = address.fromBase58Check(addressStr).version;
+    if (version === network.pubKeyHash) return 0;
+    if (version === network.scriptHash) return;
+  } catch {
+    try {
+      const version = address.fromBech32(addressStr).version;
+      if (version === 0x00) return 1;
+      if (version === 0x01) return 2;
+    } catch {
+      return;
+    }
+  }
 }

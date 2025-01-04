@@ -16,16 +16,19 @@ import { t } from "i18next";
 import { Link } from "react-router-dom";
 import s from "../styles.module.scss";
 
+import { calcBalanceLength } from "@/ui/utils";
+
 const AccountPanel = () => {
   const { currentPrice } = useTransactionManagerContext();
   const currentAccount = useGetCurrentAccount();
   const currentWallet = useGetCurrentWallet();
 
-  const cardinalBalance = Number(currentAccount?.balance ?? 0);
-  const cardinalBalanceStr = cardinalBalance.toFixed(5);
-  const cardinalBalanceAfterDot = cardinalBalanceStr.split(".")[1];
-  // const ordinalBalance = currentAccount?.inscriptionBalance ?? 0; // TODO: Implement inscription balance
-
+  const cardinalBalance = currentAccount?.balance ?? 0;
+  const ordinalBalance = currentAccount?.inscriptionBalance ?? 0;
+  const balance = cardinalBalance / 10 ** 8 + ordinalBalance;
+  const [integerPartBalance, decimalPartBalance] =
+    calcBalanceLength(balance).split(".");
+    
   return (
     <div className={s.accPanel}>
       <div className="relative w-full flex">
@@ -37,10 +40,12 @@ const AccountPanel = () => {
               </div>
             ) : (
               <div>
-                <span>{Math.floor(cardinalBalance)}</span>
-                <span className="text-2xl text-gray-400">
-                  .{cardinalBalanceAfterDot}
-                </span>
+                <span>{integerPartBalance}</span>
+                {decimalPartBalance?.length ? (
+                  <span className="text-2xl text-gray-400">
+                    .{decimalPartBalance}
+                  </span>
+                ) : undefined}
               </div>
             )}
             <span className="text-xl pb-0.5">JKC</span>
@@ -50,7 +55,7 @@ const AccountPanel = () => {
         {currentAccount?.balance !== undefined ? (
           currentPrice !== undefined ? (
             <div className="text-gray-500 text-sm">
-              ~${(cardinalBalance * currentPrice)?.toFixed(3)}
+              ~${(balance * currentPrice)?.toFixed(3)}
             </div>
           ) : undefined
         ) : undefined}

@@ -28,6 +28,14 @@
     "firefox-addon",
     "blockchain"
   ],
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/wif-test/**/*.js",
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[tj]s?(x)"
+    ]
+  },
   "scripts": {
     "dev": "bun build.ts --watch",
     "fire": "bun build.ts --watch --firefox",
@@ -36,7 +44,8 @@
     "both": "rm -rf dist && bun build.ts --firefox && bun build.ts",
     "release": "rm -rf dist && bun build.ts --firefox -c && bun build.ts -c",
     "sourcemap": "bun build.ts --sourcemap",
-    "test": "bun build.ts --watch --no-interaction"
+    "test": "bun build.ts --watch --no-interaction",
+    "address-test": "jest ./wif-test/address-test.js"
   },
   "eslintConfig": {
     "extends": [
@@ -62,6 +71,7 @@
     "@noble/hashes": "1.4.0",
     "bel-ord-utils": "^0.2.11",
     "bells-inscriber": "^0.2.8",
+    "bs58check": "^4.0.0",
     "classnames": "2.5.1",
     "dayjs": "^1.11.13",
     "eth-rpc-errors": "4.0.3",
@@ -70,9 +80,9 @@
     "i18next-icu": "^2.3.0",
     "immer": "^10.1.1",
     "intl-messageformat": "^10.7.10",
-    "junkcoinhdw": "^0.0.8",
-    "junkcoinjs-lib": "^0.0.6",
-    "junkcoinpair": "^0.0.7",
+    "junkcoinhdw": "^0.0.9",
+    "junkcoinjs-lib": "^0.0.7",
+    "junkcoinpair": "^0.0.9",
     "koa-compose": "4.1.0",
     "nintondo-bip39": "^1.0.0",
     "nintondo-browser-passworder": "^0.0.1",
@@ -117,6 +127,7 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "globals": "^15.12.0",
+    "jest": "^29.7.0",
     "postcss-modules": "^6.0.0",
     "sass": "^1.69.7",
     "sass-loader": "^16.0.0",

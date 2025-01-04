@@ -13,6 +13,7 @@ import * as bip39 from "nintondo-bip39";
 import { AddressType, HDPrivateKey } from "junkcoinhdw";
 import { Network } from "junkcoinjs-lib";
 import { isTestnet } from "@/ui/utils";
+
 class WalletController implements IWalletController {
   async isVaultEmpty() {
     const values = await storageService.getLocalValues();
