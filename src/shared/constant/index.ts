@@ -61,6 +61,9 @@ export const getContentUrl = () => CONTENT_URL;
 export const getApiUrl = (network: Network) =>
   isTestnet(network) ? TESTNET_API_URL : API_URL;
 
+export const getExplorerUrl = (network: Network) =>
+  isTestnet(network) ? TESTNET_EXPLORER_URL : EXPLORER_URL;
+
 const HISTORY_URL =
   process.env.HISTORY_URL ?? "https://history.nintondo.io/pub";
 export const getHistoryUrl = () => HISTORY_URL;

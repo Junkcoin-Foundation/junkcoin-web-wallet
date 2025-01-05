@@ -15,13 +15,18 @@ import { EXPLORER_URL, TESTNET_EXPLORER_URL } from "@/shared/constant";
 import { useControllersState } from "@/ui/states/controllerState";
 import { ss } from "@/ui/utils";
 import { useTransactionManagerContext } from "@/ui/utils/tx-ctx";
-import { isTestnet } from "@/ui/utils";
-import { networks } from "junkcoinjs-lib";
+import { getExplorerUrl } from "@/shared/constant";
+import { Network } from "junkcoinjs-lib";
+import { customFetch } from "@/shared/utils";
+import { storageService } from "@/background/services";
+import { getBaseUrl } from "@/shared/utils";
+import { useAppState } from "@/ui/states/appState";
 
 const TransactionInfo = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const currentAccount = useGetCurrentAccount();
   const { apiController } = useControllersState(ss(["apiController"]));
+  const { network } = useAppState(ss(["network"]));
 
   const { state } = useLocation();
   const { txId } = useParams();
@@ -32,9 +37,8 @@ const TransactionInfo = () => {
   );
 
   const onOpenExplorer = async () => {
-    const isOnTestnet = isTestnet(networks.testnet);
-    const explorerUrl = isOnTestnet ? TESTNET_EXPLORER_URL : EXPLORER_URL;
-    const txPath = isOnTestnet ? 'tx' : 'transaction';
+    const explorerUrl = getBaseUrl('explorer', network);
+    const txPath = explorerUrl === TESTNET_EXPLORER_URL ? 'tx' : 'transaction';
     await browserTabsCreate({
       url: `${explorerUrl}/${txPath}/${txId}`,
       active: true,
