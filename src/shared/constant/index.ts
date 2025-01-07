@@ -47,7 +47,7 @@ export const EVENTS = {
 };
 
 export const JUNKCOIN_URL = "https://junkiewally.xyz";
-export const API_URL = "http://nodecattel.xyz:29772";
+export const API_URL = "https://api.junkiewally.xyz";
 export const EXPLORER_URL = "https://junkpool.blockraid.io"
 export const SPLITTER_URL = JUNKCOIN_URL + "/belinals/splitter";
 
