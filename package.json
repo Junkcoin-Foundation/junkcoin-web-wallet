@@ -1,6 +1,6 @@
 {
   "name": "junkiewally",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "First Web3 wallet for Junkcoin blockchain, enabling JKC management and junkinals interaction",
   "private": false,
   "author": {

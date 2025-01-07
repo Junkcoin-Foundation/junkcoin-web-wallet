@@ -3,6 +3,9 @@ import fr from "./languages/fr.json";
 import ru from "./languages/ru.json";
 import ch from "./languages/ch.json";
 import kr from "./languages/kr.json";
+import de from "./languages/de.json";
+import pt from "./languages/pt.json";
+
 import i18n from "i18next";
 import { initReactI18next } from 'react-i18next';
 
@@ -23,6 +26,12 @@ export const resources = {
   },
   kr: {
     translation: kr,
+  },
+  de: {
+    translation: de,
+  },
+  pt: {
+    translation: pt,
   },
 };
 

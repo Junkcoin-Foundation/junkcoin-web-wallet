@@ -41,6 +41,7 @@ const CreateSend = () => {
   });
   const [includeFeeLocked, setIncludeFeeLocked] = useState<boolean>(false);
   const currentAccount = useGetCurrentAccount();
+  console.log(currentAccount);
   const createTx = useCreateJKCTxCallback();
   // TODO: uncomment when inscription transactions are implemented
   // const createOrdTx = useCreateOrdTx();

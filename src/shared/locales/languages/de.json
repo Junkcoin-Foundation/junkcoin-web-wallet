@@ -1,0 +1,320 @@
+{
+  "wallet_page": {
+    "transactions": "Transaktionen",
+    "no_transactions": "Keine Transaktionen",
+    "no_inscriptions": "Keine Einträge",
+    "receive": "Empfangen",
+    "send": "Senden",
+    "nft": "NFT",
+    "amount_in_transactions": "Verfügbares Guthaben"
+  },
+  "settings": {
+    "language": "Sprache",
+    "logout": "Abmelden",
+    "connected_sites": "Verbundene Seiten",
+    "expand_view": "Ansicht erweitern",
+    "security_settings": "Sicherheitseinstellungen",
+    "address_type": "Adresstyp"
+  },
+  "components": {
+    "layout": {
+      "create_new_wallet": "Neue Wallet erstellen",
+      "send": "Senden",
+      "connected_sites": "Verbundene Seiten",
+      "change_language": "Sprache ändern",
+      "switch_account": "Konto wechseln",
+      "change_address_type": "Adresstyp ändern",
+      "create_new_account": "Neues Konto erstellen",
+      "change_password": "Passwort ändern",
+      "network_settings": "Netzwerkeinstellungen",
+      "receive_bel": "JKC empfangen",
+      "switch_wallet": "Wallet wechseln",
+      "transaction_info": "Transaktionsinformationen",
+      "settings": "Einstellungen",
+      "show_mnemonic": "Mnemonik anzeigen",
+      "show_private_key": "Privaten Schlüssel anzeigen",
+      "restore_from_mnemonic": "Von Mnemonik wiederherstellen",
+      "restore_from_private_key": "Von privatem Schlüssel wiederherstellen",
+      "security": "Sicherheit",
+      "advanced": "Erweitert",
+      "discover": "Entdecken",
+      "inscriptions": "Einträge",
+      "wallet_settings": "Wallet-Einstellungen"
+    },
+    "check_password": {
+      "incorrect_password_error": "Das ist der falsche Schlüssel, du Landratte!",
+      "password": "Passwort",
+      "continue": "Fortfahren",
+      "warning": "Der nächste Bildschirm zeigt sensible Daten wie deinen privaten Schlüssel an. Stelle sicher, dass du dich in einer sicheren Umgebung befindest, bevor du fortfährst."
+    },
+    "password_input": {
+      "should_be_more_than_1_symbol": "Sollte mehr als 1 Zeichen enthalten",
+      "should_be_less_than_70_symbols": "Sollte weniger als 70 Zeichen enthalten",
+      "required": "Das Passwort ist erforderlich"
+    },
+    "rename": {
+      "enter_new_name": "Neuen Namen eingeben",
+      "minimum_length": "Die Mindestlänge beträgt 1",
+      "maximum_length": "Die maximale Länge beträgt 10",
+      "name_is_required": "Der Name ist erforderlich",
+      "save": "Speichern",
+      "rename": "Umbenennen"
+    },
+    "card": {
+      "close": "Schließen",
+      "root_account": "Hauptkonto"
+    },
+    "inscription_card": {
+      "modal_title": "Eintrag",
+      "id": "Id",
+      "address": "Adresse",
+      "outputValue": "Ausgabewert",
+      "content": "Inhalt",
+      "contentLength": "Inhaltslänge",
+      "contentType": "Inhaltstyp",
+      "timeStamp": "Zeitstempel",
+      "genesisHeight": "Genesis-Höhe",
+      "genesisFee": "Genesis-Gebühr",
+      "genesisTransaction": "Genesis-Transaktion",
+      "location": "Standort",
+      "output": "Ausgabe",
+      "offset": "Versatz",
+      "preview": "Vorschau"
+    },
+    "token_card": {
+      "transferable_balance": "Übertragbares Guthaben",
+      "balance": "Guthaben",
+      "create_transfer": "Transfer erstellen",
+      "send": "Senden",
+      "no_transfers": "Keine Transfers"
+    }
+  },
+  "change_password": {
+    "old_password": "Altes Passwort",
+    "new_password": "Neues Passwort",
+    "confirm_password": "Passwort bestätigen",
+    "change_password": "Passwort ändern",
+    "errors": {
+      "incorrect_password": "Falsches Passwort",
+      "passwords_do_not_match": "Die Passwörter stimmen nicht überein"
+    }
+  },
+  "connected_sites": {
+    "no_sites_message": "Du hast noch keine Seiten verbunden"
+  },
+  "create_password": {
+    "password": "Passwort",
+    "confirm_password": "Passwort bestätigen",
+    "create_password": "Passwort erstellen"
+  },
+  "login": {
+    "password": "Passwort",
+    "login": "Anmelden",
+    "welcome_back": "Ahoy nochmal, Käpt'n!"
+  },
+  "new_account": {
+    "max_length_error": "Die maximale Namenslänge beträgt 10",
+    "name_taken_error": "Der Name für dieses Konto ist bereits vergeben",
+    "account_created_message": "Neues Konto erstellt",
+    "enter_name_label": "Name eingeben:",
+    "create_new_account": "Neues Konto erstellen"
+  },
+  "new_wallet": {
+    "new_mnemonic_label": "Neues Mnemonik",
+    "restore_mnemonic_label": "Mnemonik wiederherstellen",
+    "restore_from_private_key_label": "Von privatem Schlüssel wiederherstellen",
+    "restore_from_label": "Wiederherstellen von",
+    "step_1": "Schritt 1",
+    "step_2": "Schritt 2",
+    "continue": "Fortfahren",
+    "new_mnemonic": {
+      "error_phrase_blank": "Die mnemonische Phrase ist leer",
+      "warning": "Wenn du diese Worte verlierst, kannst du dein verlorenes Konto niemals wiederherstellen",
+      "i_saved_this_phrase": "Ich habe diese Phrase gespeichert",
+      "copy": "Kopieren"
+    },
+    "restore_mnemonic": {
+      "incomplete_phrase_error": "Bitte alle Wörter eingeben",
+      "invalid_words_error": "Wörter sind ungültig",
+      "show_root_acc": "Legacy-Ableitung verwenden"
+    },
+    "restore_private": {
+      "private_key": "Privater Schlüssel",
+      "recover": "Wiederherstellen",
+      "invalid_private_key_error": "Ungültiger privater Schlüssel"
+    },
+    "hd_path": "HD-Pfad",
+    "passphrase": "Passphrase"
+  },
+  "receive": {
+    "click_to_copy": "Zum Kopieren klicken",
+    "copy_address": "Adresse kopieren"
+  },
+  "send": {
+    "confirm_send": {
+      "to_addrses": "An Adresse",
+      "from_address": "Von Adresse",
+      "amount": "Betrag",
+      "fee": "Gebühr",
+      "included": "Inklusive",
+      "not_included": "Nicht inklusive",
+      "confirm": "Bestätigen",
+      "inscription_id": "Eintrags-ID"
+    },
+    "create_send": {
+      "minimum_amount_error": "Der Mindestbetrag beträgt 0,00001 JKC",
+      "fee_exceeds_amount_error": "Die Gebühr übersteigt den Betrag",
+      "address_error": "Ungültige Empfängeradresse",
+      "not_enough_money_error": "Nicht genügend Guthaben auf deinem Konto",
+      "not_enough_fee_error": "Gebühr erhöhen",
+      "fee_is_text_error": "Die Gebühr muss eine ganze Zahl sein",
+      "default_error": "Es ist ein Fehler aufgetreten",
+      "address": "Adresse",
+      "amount": "Betrag",
+      "amount_to_send": "Zu sendender Betrag",
+      "max_amount": "MAX",
+      "fee_label": "Gebühr",
+      "include_fee_in_the_amount_label": "Gebühr im Betrag einschließen",
+      "save_address_for_the_next_payments_label": "Adresse für zukünftige Zahlungen speichern",
+      "continue": "Fortfahren",
+      "fee_input": {
+        "fast": "Schnell",
+        "slow": "Langsam",
+        "custom": "Benutzerdefiniert"
+      },
+      "address_input": {
+        "address_book": "Adressbuch",
+        "address_placeholder": "Empfängeradresse"
+      },
+      "address_book": {
+        "address_book": "Adressbuch",
+        "no_addresses": "Keine Adressen vorhanden"
+      }
+    },
+    "finalle_send": {
+      "success": "Erfolg",
+      "explorer": "Explorer",
+      "back": "Zurück",
+      "rebroadcast_transaction": "Transaktion erneut senden",
+      "successfully_rebroadcasted": "Transaktion erfolgreich erneut gesendet"
+    }
+  },
+  "switch_account": {
+    "name_already_taken_error": "Dieser Name ist bereits vergeben",
+    "copy_address": "Adresse kopieren",
+    "rename_account": "Konto umbenennen",
+    "export_private_key": "Privaten Schlüssel exportieren",
+    "show_pk": {
+      "copy": "Kopieren"
+    }
+  },
+  "switch_wallet": {
+    "rename_wallet": "Wallet umbenennen",
+    "show_mnemonic_private_key": "Mnemonischen privaten Schlüssel anzeigen",
+    "last_wallet_error": "Du kannst deine letzte Wallet nicht löschen",
+    "remove_wallet": "Wallet entfernen",
+    "are_you_sure": "Bist du sicher, dass du löschen möchtest?",
+    "yes": "Ja",
+    "no": "Nein",
+    "copy": "Kopieren"
+  },
+  "transaction_info": {
+    "txid": "TxId",
+    "confirmations_label": "Bestätigungen",
+    "fee_label": "Gebühr",
+    "value_label": "Wert",
+    "open_in_explorer": "Im Explorer öffnen",
+    "copied": "Kopiert",
+    "inputs": "Eingänge",
+    "outputs": "Ausgänge",
+    "details": "Details",
+    "your_address": "Du"
+  },
+  "hooks": {
+    "transaction": {
+      "insufficient_balance_0": "Unzureichendes Guthaben. Nicht-Eintrag-Guthaben",
+      "insufficient_balance_1": "JKC) ist niedriger als",
+      "insufficient_balance_2": "JKC",
+      "too_many_utxos": "Zu viele UTXOs. Du musst sie konsolidieren oder einen kleineren Betrag senden",
+      "too_long_mempool_chain": "Zu lange Mempool-Kette. Du musst warten, bis sie bestätigt wird"
+    },
+    "wallet": {
+      "last_wallet_error": "Du kannst deine letzte Wallet nicht löschen"
+    }
+  },
+  "advanced": {
+    "root_acc_warning": "Legacy-Ableitung verwenden",
+    "blank": "Hier gibt es nichts für deinen Wallet-Typ"
+  },
+  "inscription_details": {
+    "content_length": "Inhaltslänge",
+    "status.block_height": "Blockhöhe",
+    "content_type": "Inhaltstyp",
+    "genesis": "Genesis",
+    "preview": "Vorschau",
+    "content": "Inhalt",
+    "offset": "Versatz",
+    "owner": "Besitzer",
+    "value": "Wert",
+    "outpoint": "Ausgangspunkt",
+    "inscription_id": "Eintrag-ID",
+    "status.block_time": "Zeitstempel",
+    "title": "Eintrag",
+    "inscription_number": "Eintragsnummer"
+  },
+  "inscriptions": {
+    "inscription_not_found": "Arrr, die Junkinals sind in den Wellen verloren gegangen, Kamerad!",
+    "tokens_not_found": "Tokens konnten nicht gefunden werden",
+    "inscription_search_placeholder": "Nummer/Eintrag-ID",
+    "token_search_placeholder": "Token-Name",
+    "mint_token_modal_title": "Transfer-Token erstellen",
+    "send_token_modal_title": "Token senden",
+    "amount_to_mint": "Zu erstellende Menge",
+    "transfers_count": "Anzahl der Übertragungen",
+    "amount_is_text_error": "Die Menge sollte eine ganze Zahl sein",
+    "transfer_count_is_text_error": "Die Übertragungsanzahl sollte eine ganze Zahl sein",
+    "amount_cannot_be_fractional": "Die Menge darf nicht gebrochen sein",
+    "transfer_countcannot_be_fractional": "Die Übertragungsanzahl darf nicht gebrochen sein",
+    "amount_exceeds_balance": "Die Menge übersteigt das Guthaben",
+    "transfer_inscribed": "Übertragung erfolgreich eingeschrieben",
+    "failed_inscribe_transfer": "Übertragung konnte nicht erstellt werden",
+    "failed_inscribe_transfer2": "Diese Transaktionen werden später gesendet",
+    "choose_transfer": "Wähle Übertragungen zum Senden aus",
+    "0_selected_inscriptions_error": "0 ausgewählte Einträge",
+    "success_send_transfer": "Übertragung(en) erfolgreich gesendet",
+    "failed_send_transfer": "Übertragung(en) konnte(n) nicht gesendet werden",
+    "inscribe": "Einschreiben",
+    "transfer": "Übertragung",
+    "not_enough_balance": "Nicht genügend Guthaben",
+    "not_enough_token_balance": "Token-Guthaben ist nicht ausreichend",
+    "minimum_transfer_count": "Die Mindestübertragungsanzahl beträgt 1",
+    "minimum_amount_error": "Die Mindestanzahl an Token beträgt 1",
+    "input_amount_first": "Zuerst Menge eingeben",
+    "tick_is_not_set": "Tick ist nicht definiert",
+    "select_all": "Alle auswählen"
+  },
+  "provider": {
+    "sign_tx": "Transaktion signieren",
+    "sign_message": "Nachricht signieren",
+    "you_are_signing": "Du signierst",
+    "resolve": "Lösen",
+    "reject": "Ablehnen",
+    "sign_request": "Signaturanfrage",
+    "send_jkc": "JKC senden",
+    "sign": "Signieren",
+    "create_transaction": "Transaktion erstellen",
+    "connecting": "Verbinden",
+    "connect": "Verbinden",
+    "access_required": "Zugriff erforderlich",
+    "to_address": "An Adresse",
+    "connecting_account": "Konto wird verbunden",
+    "warning": "Warnung",
+    "anyone_can_pay_warning": "Dieser Input hat das SIGHASH_SINGLE | ANYONECANPAY-Flag",
+    "multi_psbt_sign": "Transaktionen signieren",
+    "fee": "Gebühr",
+    "switch": "Wechseln",
+    "switch_network": "Die Website möchte, dass du dein Netzwerk zu folgendem änderst",
+    "switch_network_title": "Netzwerk wechseln",
+    "switch_network_request": "Netzwerkwechselanfrage"
+  }
+}
