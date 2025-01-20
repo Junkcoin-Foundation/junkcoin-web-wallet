@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JunkieWally Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nintondo Wallet Demo</h1>
+    <button id="checkWallet">Check Wallet Status</button>
+    <button id="connectWallet">Connect Wallet</button>
+    <div id="status"></div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+
+        function updateStatus(message) {
+            statusDiv.innerHTML = message;
+            console.log(message);
+        }
+
+        // Check wallet button
+        document.getElementById('checkWallet').addEventListener('click', async () => {
+            if (typeof window.nintondo !== 'undefined') {
+                try {
+                    const isConnected = await window.nintondo.isConnected();
+                    const account = await window.nintondo.getAccount();
+                    
+                    updateStatus(`
+                        Wallet detected!<br>
+                        Available methods: ${Object.keys(window.nintondo).join(', ')}<br>
+                        isConnected: ${isConnected}<br>
+                        Account: ${account || 'Not connected'}<br>
+                    `);
+                    
+                    console.log('Full nintondo object:', window.nintondo);
+                } catch (error) {
+                    updateStatus(`Error checking wallet status: ${error.message}`);
+                }
+            } else {
+                updateStatus('Nintondo wallet not detected. Please install the extension!');
+            }
+        });
+
+        // Connect wallet button
+        document.getElementById('connectWallet').addEventListener('click', async () => {
+            try {
+                if (typeof window.nintondo === 'undefined') {
+                    throw new Error('Nintondo wallet not detected');
+                }
+
+                // First check if already connected
+                const isConnected = await window.nintondo.isConnected();
+                if (isConnected) {
+                    const account = await window.nintondo.getAccount();
+                    updateStatus(`Already connected!<br>Account: ${account}`);
+                    return;
+                }
+
+                // Try to connect
+                const response = await window.nintondo.connect();
+                const account = await window.nintondo.getAccount();
+                
+                updateStatus(`
+                    Connected successfully!<br>
+                    Account: ${account}<br>
+                    Response: ${JSON.stringify(response, null, 2)}
+                `);
+            } catch (error) {
+                updateStatus(`Error: ${error.message}`);
+                console.error('Connection error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
