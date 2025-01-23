@@ -114,7 +114,7 @@ export default function App() {
     <div>
       <div
         onClick={onOpenNintondo}
-        className="uppercase text-center hidden standard:block font-medium text-xl mb-6 select-none cursor-pointer hover:underline"
+        className="normal-case text-center hidden standard:block font-medium text-xl mb-6 select-none cursor-pointer hover:underline"
       >
         junkcoin
       </div>

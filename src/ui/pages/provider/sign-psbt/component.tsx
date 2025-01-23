@@ -10,7 +10,9 @@ import Modal from "@/ui/components/modal";
 import SignPsbtFileds from "@/ui/components/sign-psbt-fileds";
 import notificationController from "@/background/controllers/notificationController";
 import toast from "react-hot-toast";
-
+import { getNetworkCurrency } from "@/ui/utils";
+import { useAppState } from "@/ui/states/appState";
+import { ss } from "@/ui/utils";
 const SignPsbt = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [fields, setFields] = useState<IField[]>([]);
@@ -19,7 +21,7 @@ const SignPsbt = () => {
   );
   const [fee, setFee] = useState<string>("");
   const getPsbtFields = useGetPsbtFields();
-
+  const { network } = useAppState(ss(["network"]));
   const updateFields = useCallback(async () => {
     if (fields.length <= 0) setLoading(true);
     const resultFields = await getPsbtFields();
@@ -28,7 +30,7 @@ const SignPsbt = () => {
       return;
     }
     setFields(resultFields.fields[0]);
-    setFee(resultFields.fee + " JKC");
+    setFee(resultFields.fee + " " + getNetworkCurrency(network));
     setLoading(false);
   }, [getPsbtFields, fields]);
 

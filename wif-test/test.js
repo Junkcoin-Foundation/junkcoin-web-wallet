@@ -20,7 +20,7 @@ function importPrivKey(wifString, label = "", rescan = true) {
     // Decode the WIF string to get the key pair
     let keyPair;
     try {
-        keyPair = ECPair.fromWIF(wifString, networks.junkcoin);
+        keyPair = ECPair.fromWIF(wifString, networks.testnet);
     } catch (error) {
         throw new Error("Invalid private key encoding: " + error.message);
     }
@@ -35,5 +35,5 @@ function importPrivKey(wifString, label = "", rescan = true) {
 }
 
 // Example usage
-const wif = 'NNMdn7U19SX691d8Cv8Gn9Wu98GU94vUwMNowA9myYHyYnZN99HY'; // Replace with a valid WIF
+const wif = 'cRUgLRHeXgBuJR3qtG7rnXKNshbXENjzGoYoyZfoATsycGBKLxsB'; // Replace with a valid WIF
 importPrivKey(wif, "My Label", true); 

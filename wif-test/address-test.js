@@ -20,15 +20,16 @@ describe('Junkcoin Address Generation', () => {
     expect(address.charAt(0)).toBe('7');
   });
 
-  it('should generate testnet address starting with m', () => {
+  it('should generate testnet address starting with m or n', () => {
     // Generate a random keypair for testnet
     const keyPair = ECPair.makeRandom({ network: networks.testnet });
     const { address: testnetAddress } = payments.p2pkh({
       pubkey: keyPair.publicKey,
-    }, { network: networks.testnet });
+      network: networks.testnet
+    });
     console.log(testnetAddress);
     expect(testnetAddress).toBeDefined();
-    expect(testnetAddress.charAt(0)).toBe('m');
+    expect(testnetAddress.charAt(0)).toMatch(/[mn]/);
   });
 
   // Modified test for private key consistency
@@ -47,7 +48,8 @@ describe('Junkcoin Address Generation', () => {
     const testnetKeyPair2 = ECPair.fromPrivateKey(privateKey2, { network: networks.testnet });
     const testnetAddress2 = payments.p2pkh({
       pubkey: testnetKeyPair2.publicKey,
-    }, { network: networks.testnet }).address;
+      network: networks.testnet
+    }).address;
 
     console.log('Mainnet address (key1):', mainnetAddress1);
     console.log('Testnet address (key2):', testnetAddress2);

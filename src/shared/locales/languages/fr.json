@@ -1,168 +1,167 @@
 {
   "wallet_page": {
-      "transactions": "Transactions",
-      "no_transactions": "Pas de transactions",
-      "no_inscriptions": "Pas d'inscriptions",
-      "receive": "Recevoir",
-      "send": "Envoyer",
-      "nft": "NFT",
-      "amount_in_transactions": "Solde disponible"
+    "transactions": "Transactions",
+    "no_transactions": "Pas de transactions",
+    "no_inscriptions": "Pas d'inscriptions",
+    "receive": "Recevoir",
+    "send": "Envoyer",
+    "nft": "NFT",
+    "amount_in_transactions": "Solde disponible"
   },
   "settings": {
-      "language": "Langue",
-      "logout": "Déconnexion",
-      "connected_sites": "Sites connectés",
-      "expand_view": "Agrandir la vue",
-      "security_settings": "Paramètres de sécurité",
-      "address_type": "Type d'adresse"
+    "language": "Langue",
+    "logout": "Déconnexion",
+    "connected_sites": "Sites connectés",
+    "expand_view": "Agrandir la vue",
+    "security_settings": "Paramètres de sécurité",
+    "address_type": "Type d'adresse"
   },
   "components": {
-      "layout": {
-          "create_new_wallet": "Créer un nouveau wallet",
-          "send": "Envoyer",
-          "connected_sites": "Sites connectés",
-          "change_language": "Changer la langue",
-          "switch_account": "Changer de compte",
-          "change_address_type": "Changer le type d'adresse",
-          "create_new_account": "Créer un nouveau compte",
-          "change_password": "Changer le mot de passe",
-          "network_settings": "Paramètres réseau",
-          "receive_bel": "Recevoir des JKC",
-          "switch_wallet": "Changer de wallet",
-          "transaction_info": "Informations sur la transaction",
-          "settings": "Paramètres",
-          "show_mnemonic": "Afficher la phrase mnémonique",
-          "show_private_key": "Afficher la clé privée",
-          "restore_from_mnemonic": "Restaurer depuis une phrase mnémonique",
-          "restore_from_private_key": "Restaurer depuis une clé privée",
-          "security": "Sécurité",
-          "advanced": "Avancé",
-          "discover": "Découvrir",
-          "inscriptions": "Inscriptions",
-          "wallet_settings": "Paramètres du wallet"
-      }
-  },
-  "check_password": {
-      "incorrect_password_error": "Ceci est une clé incorrecte, pirate de pacotille !",
-      "password": "Mot de passe",
-      "continue": "Continuer",
-      "warning": "L'écran suivant affichera des données sensibles, telles que votre clé privée. Assurez-vous d'être dans un environnement sécurisé avant de continuer."
-  },
-  "password_input": {
-      "should_be_more_than_1_symbol": "Doit contenir plus d'un caractère",
-      "should_be_less_than_70_symbols": "Doit contenir moins de 70 caractères",
-      "required": "Le mot de passe est requis"
-  },
-  "rename": {
-      "enter_new_name": "Entrez un nouveau nom",
-      "minimum_length": "La longueur minimale est de 1",
-      "maximum_length": "La longueur maximale est de 10",
-      "name_is_required": "Un nom est requis",
-      "save": "Enregistrer",
-      "rename": "Renommer"
-  },
-  "card": {
-      "close": "Fermer",
-      "root_account": "Compte principal"
-  },
-  "inscription_card": {
-      "modal_title": "Inscription",
-      "id": "ID",
-      "address": "Adresse",
-      "outputValue": "Valeur de sortie",
-      "content": "Contenu",
-      "contentLength": "Longueur du contenu",
-      "contentType": "Type de contenu",
-      "timeStamp": "Horodatage",
-      "genesisHeight": "Hauteur Genesis",
-      "genesisFee": "Frais Genesis",
-      "genesisTransaction": "Transaction Genesis",
-      "location": "Emplacement",
-      "output": "Sortie",
-      "offset": "Décalage",
-      "preview": "Aperçu"
-  },
-  "token_card": {
-      "transferable_balance": "Solde transférable",
-      "balance": "Solde",
-      "create_transfer": "Créer un transfert",
-      "send": "Envoyer",
-      "no_transfers": "Aucun transfert"
+    "layout": {
+        "create_new_wallet": "Créer un nouveau wallet",
+        "send": "Envoyer",
+        "connected_sites": "Sites connectés",
+        "change_language": "Changer la langue",
+        "switch_account": "Changer de compte",
+        "change_address_type": "Changer le type d'adresse",
+        "create_new_account": "Créer un nouveau compte",
+        "change_password": "Changer le mot de passe",
+        "network_settings": "Paramètres réseau",
+        "receive_bel": "Recevoir des JKC",
+        "switch_wallet": "Changer de wallet",
+        "transaction_info": "Informations sur la transaction",
+        "settings": "Paramètres",
+        "show_mnemonic": "Afficher la phrase mnémonique",
+        "show_private_key": "Afficher la clé privée",
+        "restore_from_mnemonic": "Restaurer depuis une phrase mnémonique",
+        "restore_from_private_key": "Restaurer depuis une clé privée",
+        "security": "Sécurité",
+        "advanced": "Avancé",
+        "discover": "Découvrir",
+        "inscriptions": "Inscriptions",
+        "wallet_settings": "Paramètres du wallet"
+    }
+    },
+    "check_password": {
+    "incorrect_password_error": "Ceci est une clé incorrecte, pirate de pacotille !",
+    "password": "Mot de passe",
+    "continue": "Continuer",
+    "warning": "L'écran suivant affichera des données sensibles, telles que votre clé privée. Assurez-vous d'être dans un environnement sécurisé avant de continuer."
+    },
+    "password_input": {
+    "should_be_more_than_1_symbol": "Doit contenir plus d'un caractère",
+    "should_be_less_than_70_symbols": "Doit contenir moins de 70 caractères",
+    "required": "Le mot de passe est requis"
+    },
+    "rename": {
+    "enter_new_name": "Entrez un nouveau nom",
+    "minimum_length": "La longueur minimale est de 1",
+    "maximum_length": "La longueur maximale est de 10",
+    "name_is_required": "Un nom est requis",
+    "save": "Enregistrer",
+    "rename": "Renommer"
+    },
+    "card": {
+    "close": "Fermer",
+    "root_account": "Compte principal"
+    },
+    "inscription_card": {
+    "modal_title": "Inscription",
+    "id": "ID",
+    "address": "Adresse",
+    "outputValue": "Valeur de sortie",
+    "content": "Contenu",
+    "contentLength": "Longueur du contenu",
+    "contentType": "Type de contenu",
+    "timeStamp": "Horodatage",
+    "genesisHeight": "Hauteur Genesis",
+    "genesisFee": "Frais Genesis",
+    "genesisTransaction": "Transaction Genesis",
+    "location": "Emplacement",
+    "output": "Sortie",
+    "offset": "Décalage",
+    "preview": "Aperçu"
+    },
+    "token_card": {
+    "transferable_balance": "Solde transférable",
+    "balance": "Solde",
+    "create_transfer": "Créer un transfert",
+    "send": "Envoyer",
+    "no_transfers": "Aucun transfert"
   },
   "change_password": {
-      "old_password": "Ancien mot de passe",
-      "new_password": "Nouveau mot de passe",
-      "confirm_password": "Confirmer le mot de passe",
-      "change_password": "Changer le mot de passe",
-      "errors": {
-          "incorrect_password": "Mot de passe incorrect",
-          "passwords_do_not_match": "Les mots de passe ne correspondent pas"
-      }
+    "old_password": "Ancien mot de passe",
+    "new_password": "Nouveau mot de passe",
+    "confirm_password": "Confirmer le mot de passe",
+    "change_password": "Changer le mot de passe",
+    "errors": {
+        "incorrect_password": "Mot de passe incorrect",
+        "passwords_do_not_match": "Les mots de passe ne correspondent pas"
+    }
   },
   "connected_sites": {
-      "no_sites_message": "Vous n'avez encore connecté aucun site"
+    "no_sites_message": "Vous n'avez encore connecté aucun site"
   },
   "create_password": {
-      "password": "Mot de passe",
-      "confirm_password": "Confirmer le mot de passe",
-      "create_password": "Créer un mot de passe"
+    "password": "Mot de passe",
+    "confirm_password": "Confirmer le mot de passe",
+    "create_password": "Créer un mot de passe"
   },
   "login": {
-      "password": "Mot de passe",
-      "login": "Se connecter",
-      "welcome_back": "Bon retour, Capitaine !"
+    "password": "Mot de passe",
+    "login": "Se connecter",
+    "welcome_back": "Bon retour, Capitaine !"
   },
   "new_account": {
-      "max_length_error": "La longueur maximale du nom est de 10",
-      "name_taken_error": "Le nom de ce compte est déjà pris",
-      "account_created_message": "Nouveau compte créé",
-      "enter_name_label": "Entrez le nom :",
-      "create_new_account": "Créer un nouveau compte"
+    "max_length_error": "La longueur maximale du nom est de 10",
+    "name_taken_error": "Le nom de ce compte est déjà pris",
+    "account_created_message": "Nouveau compte créé",
+    "enter_name_label": "Entrez le nom :",
+    "create_new_account": "Créer un nouveau compte"
   },
   "new_wallet": {
-      "new_mnemonic_label": "Nouvelle phrase mnémonique",
-      "restore_mnemonic_label": "Restaurer une phrase mnémonique",
-      "restore_from_private_key_label": "Restaurer depuis une clé privée",
-      "restore_from_label": "Restaurer depuis",
-      "step_1": "Étape 1",
-      "step_2": "Étape 2",
-      "continue": "Continuer",
-      "new_mnemonic": {
-          "error_phrase_blank": "La phrase mnémonique est vide",
-          "warning": "Si vous perdez ces mots, vous ne pourrez jamais récupérer votre compte perdu",
-          "i_saved_this_phrase": "J'ai sauvegardé cette phrase",
-          "copy": "Copier"
-      },
-      "restore_mnemonic": {
-          "incomplete_phrase_error": "Veuillez insérer tous les mots",
-          "invalid_words_error": "Les mots sont invalides",
-          "show_root_acc": "Utiliser la dérivation héritée"
-      },
-      "restore_private": {
-          "private_key": "Clé privée",
-          "recover": "Récupérer",
-          "invalid_private_key_error": "Clé privée invalide"
-      },
-      "hd_path": "Chemin HD",
-      "passphrase": "Phrase de passe"
+    "new_mnemonic_label": "Nouvelle phrase mnémonique",
+    "restore_mnemonic_label": "Restaurer une phrase mnémonique",
+    "restore_from_private_key_label": "Restaurer depuis une clé privée",
+    "restore_from_label": "Restaurer depuis",
+    "step_1": "Étape 1",
+    "step_2": "Étape 2",
+    "continue": "Continuer",
+    "new_mnemonic": {
+        "error_phrase_blank": "La phrase mnémonique est vide",
+        "warning": "Si vous perdez ces mots, vous ne pourrez jamais récupérer votre compte perdu",
+        "i_saved_this_phrase": "J'ai sauvegardé cette phrase",
+        "copy": "Copier"
+    },
+    "restore_mnemonic": {
+        "incomplete_phrase_error": "Veuillez insérer tous les mots",
+        "invalid_words_error": "Les mots sont invalides",
+        "show_root_acc": "Utiliser la dérivation héritée"
+    },
+    "restore_private": {
+        "private_key": "Clé privée",
+        "recover": "Récupérer",
+        "invalid_private_key_error": "Clé privée invalide"
+    },
+    "hd_path": "Chemin HD",
+    "passphrase": "Phrase de passe"
   },
   "receive": {
-      "click_to_copy": "Cliquez pour copier",
-      "copy_address": "Copier l'adresse"
+    "click_to_copy": "Cliquez pour copier",
+    "copy_address": "Copier l'adresse"
   },
   "send": {
-      "confirm_send": {
-          "to_addrses": "À l'adresse",
-          "from_address": "De l'adresse",
-          "amount": "Montant",
-          "fee": "Frais",
-          "included": "inclus",
-          "not_included": "non inclus",
-          "confirm": "Confirmer",
-          "inscription_id": "ID de l'inscription"
-      }
-  },
-  "create_send": {
+    "confirm_send": {
+      "to_addrses": "À l'adresse",
+      "from_address": "De l'adresse",
+      "amount": "Montant",
+      "fee": "Frais",
+      "included": "inclus",
+      "not_included": "non inclus",
+      "confirm": "Confirmer",
+      "inscription_id": "ID de l'inscription"
+    },
+    "create_send": {
       "minimum_amount_error": "Le montant minimum est de 0.00001 JKC",
       "fee_exceeds_amount_error": "Les frais dépassent le montant",
       "address_error": "Adresse du destinataire invalide",
@@ -179,142 +178,143 @@
       "save_address_for_the_next_payments_label": "Enregistrer l'adresse pour les prochains paiements",
       "continue": "Continuer",
       "fee_input": {
-          "fast": "Rapide",
-          "slow": "Lent",
-          "custom": "Personnalisé"
+        "fast": "Rapide",
+        "slow": "Lent",
+        "custom": "Personnalisé"
       },
       "address_input": {
-          "address_book": "Carnet d'adresses",
-          "address_placeholder": "Adresse du destinataire"
+        "address_book": "Carnet d'adresses",
+        "address_placeholder": "Adresse du destinataire"
       },
       "address_book": {
-          "address_book": "Carnet d'adresses",
-          "no_addresses": "Aucune adresse ici"
+        "address_book": "Carnet d'adresses",
+        "no_addresses": "Aucune adresse ici"
       }
-  },
-  "finalle_send": {
+    },
+    "finalle_send": {
       "success": "Succès",
       "explorer": "Explorateur",
       "back": "Retour",
       "rebroadcast_transaction": "Réémettre la transaction",
       "successfully_rebroadcasted": "Transaction réémise avec succès"
+    }
   },
   "switch_account": {
-      "name_already_taken_error": "Ce nom est déjà pris",
-      "copy_address": "Copier l'adresse",
-      "rename_account": "Renommer le compte",
-      "export_private_key": "Exporter la clé privée",
-      "show_pk": {
-          "copy": "Copier"
-      }
+    "name_already_taken_error": "Ce nom est déjà pris",
+    "copy_address": "Copier l'adresse",
+    "rename_account": "Renommer le compte",
+    "export_private_key": "Exporter la clé privée",
+    "show_pk": {
+      "copy": "Copier"
+    }
   },
   "switch_wallet": {
-      "rename_wallet": "Renommer le wallet",
-      "show_mnemonic_private_key": "Afficher la clé privée mnémonique",
-      "last_wallet_error": "Vous ne pouvez pas supprimer votre dernier wallet",
-      "remove_wallet": "Supprimer le wallet",
-      "are_you_sure": "Êtes-vous sûr de vouloir supprimer ?",
-      "yes": "Oui",
-      "no": "Non",
-      "copy": "Copier"
+    "rename_wallet": "Renommer le wallet",
+    "show_mnemonic_private_key": "Afficher la clé privée mnémonique",
+    "last_wallet_error": "Vous ne pouvez pas supprimer votre dernier wallet",
+    "remove_wallet": "Supprimer le wallet",
+    "are_you_sure": "Êtes-vous sûr de vouloir supprimer ?",
+    "yes": "Oui",
+    "no": "Non",
+    "copy": "Copier"
   },
   "transaction_info": {
-      "txid": "TxId",
-      "confirmations_label": "Confirmations",
-      "fee_label": "Frais",
-      "value_label": "Valeur",
-      "open_in_explorer": "Ouvrir dans l'explorateur",
-      "copied": "Copié",
-      "inputs": "Entrées",
-      "outputs": "Sorties",
-      "details": "Détails",
-      "your_address": "Vous"
+    "txid": "TxId",
+    "confirmations_label": "Confirmations",
+    "fee_label": "Frais",
+    "value_label": "Valeur",
+    "open_in_explorer": "Ouvrir dans l'explorateur",
+    "copied": "Copié",
+    "inputs": "Entrées",
+    "outputs": "Sorties",
+    "details": "Détails",
+    "your_address": "Vous"
   },
   "hooks": {
-      "transaction": {
-          "insufficient_balance_0": "Solde insuffisant. Le solde hors inscription",
-          "insufficient_balance_1": "JKC) est inférieur à",
-          "insufficient_balance_2": "JKC",
-          "too_many_utxos": "Trop de UTXO. Vous devez les consolider ou envoyer un montant plus petit",
-          "too_long_mempool_chain": "Chaîne mempool trop longue. Vous devez attendre sa confirmation"
-      },
-      "wallet": {
-          "last_wallet_error": "Vous ne pouvez pas supprimer votre dernier wallet"
-      }
+    "transaction": {
+        "insufficient_balance_0": "Solde insuffisant. Le solde hors inscription",
+        "insufficient_balance_1": "JKC) est inférieur à",
+        "insufficient_balance_2": "JKC",
+        "too_many_utxos": "Trop de UTXO. Vous devez les consolider ou envoyer un montant plus petit",
+        "too_long_mempool_chain": "Chaîne mempool trop longue. Vous devez attendre sa confirmation"
+    },
+    "wallet": {
+        "last_wallet_error": "Vous ne pouvez pas supprimer votre dernier wallet"
+    }
   },
   "advanced": {
-      "root_acc_warning": "Utiliser la dérivation héritée",
-      "blank": "Rien ici pour votre type de wallet"
+    "root_acc_warning": "Utiliser la dérivation héritée",
+    "blank": "Rien ici pour votre type de wallet"
   },
   "inscription_details": {
-      "content_length": "Longueur du contenu",
-      "status.block_height": "Hauteur du bloc",
-      "content_type": "Type de contenu",
-      "genesis": "Genesis",
-      "preview": "Aperçu",
-      "content": "Contenu",
-      "offset": "Décalage",
-      "owner": "Propriétaire",
-      "value": "Valeur",
-      "outpoint": "Outpoint",
-      "inscription_id": "ID de l'inscription",
-      "status.block_time": "Horodatage",
-      "title": "Inscription",
-      "inscription_number": "Numéro d'inscription"
+    "content_length": "Longueur du contenu",
+    "status.block_height": "Hauteur du bloc",
+    "content_type": "Type de contenu",
+    "genesis": "Genesis",
+    "preview": "Aperçu",
+    "content": "Contenu",
+    "offset": "Décalage",
+    "owner": "Propriétaire",
+    "value": "Valeur",
+    "outpoint": "Outpoint",
+    "inscription_id": "ID de l'inscription",
+    "status.block_time": "Horodatage",
+    "title": "Inscription",
+    "inscription_number": "Numéro d'inscription"
   },
   "inscriptions": {
-      "inscription_not_found": "Arrr, les junkinals sont perdus dans les vagues, matelot !",
-      "tokens_not_found": "Impossible de trouver les jetons",
-      "inscription_search_placeholder": "Numéro/ID de l'inscription",
-      "token_search_placeholder": "Nom du jeton",
-      "mint_token_modal_title": "Créer un jeton de transfert",
-      "send_token_modal_title": "Envoyer un jeton",
-      "amount_to_mint": "Quantité à créer",
-      "transfers_count": "Nombre de transferts",
-      "amount_is_text_error": "La quantité doit être un entier",
-      "transfer_count_is_text_error": "Le nombre de transferts doit être un entier",
-      "amount_cannot_be_fractional": "La quantité ne peut pas être fractionnaire",
-      "transfer_countcannot_be_fractional": "Le nombre de transferts ne peut pas être fractionnaire",
-      "amount_exceeds_balance": "La quantité dépasse le solde",
-      "transfer_inscribed": "Transfert inscrit avec succès",
-      "failed_inscribe_transfer": "Échec de la création du transfert",
-      "failed_inscribe_transfer2": "Ces transactions seront poussées plus tard",
-      "choose_transfer": "Choisissez les transferts à envoyer",
-      "0_selected_inscriptions_error": "0 inscriptions sélectionnées",
-      "success_send_transfer": "Transfert(s) envoyé(s) avec succès",
-      "failed_send_transfer": "Échec de l'envoi du transfert",
-      "inscribe": "Inscrire",
-      "transfer": "Transférer",
-      "not_enough_balance": "Solde insuffisant",
-      "not_enough_token_balance": "Le solde des jetons est insuffisant",
-      "minimum_transfer_count": "Le nombre minimum de transferts est 1",
-      "minimum_amount_error": "La quantité minimale de jetons est 1",
-      "input_amount_first": "Saisissez d'abord la quantité",
-      "tick_is_not_set": "Le tick n'est pas défini",
-      "select_all": "Tout sélectionner"
+    "inscription_not_found": "Arrr, les junkinals sont perdus dans les vagues, matelot !",
+    "tokens_not_found": "Impossible de trouver les jetons",
+    "inscription_search_placeholder": "Numéro/ID de l'inscription",
+    "token_search_placeholder": "Nom du jeton",
+    "mint_token_modal_title": "Créer un jeton de transfert",
+    "send_token_modal_title": "Envoyer un jeton",
+    "amount_to_mint": "Quantité à créer",
+    "transfers_count": "Nombre de transferts",
+    "amount_is_text_error": "La quantité doit être un entier",
+    "transfer_count_is_text_error": "Le nombre de transferts doit être un entier",
+    "amount_cannot_be_fractional": "La quantité ne peut pas être fractionnaire",
+    "transfer_countcannot_be_fractional": "Le nombre de transferts ne peut pas être fractionnaire",
+    "amount_exceeds_balance": "La quantité dépasse le solde",
+    "transfer_inscribed": "Transfert inscrit avec succès",
+    "failed_inscribe_transfer": "Échec de la création du transfert",
+    "failed_inscribe_transfer2": "Ces transactions seront poussées plus tard",
+    "choose_transfer": "Choisissez les transferts à envoyer",
+    "0_selected_inscriptions_error": "0 inscriptions sélectionnées",
+    "success_send_transfer": "Transfert(s) envoyé(s) avec succès",
+    "failed_send_transfer": "Échec de l'envoi du transfert",
+    "inscribe": "Inscrire",
+    "transfer": "Transférer",
+    "not_enough_balance": "Solde insuffisant",
+    "not_enough_token_balance": "Le solde des jetons est insuffisant",
+    "minimum_transfer_count": "Le nombre minimum de transferts est 1",
+    "minimum_amount_error": "La quantité minimale de jetons est 1",
+    "input_amount_first": "Saisissez d'abord la quantité",
+    "tick_is_not_set": "Le tick n'est pas défini",
+    "select_all": "Tout sélectionner"
   },
   "provider": {
-      "sign_tx": "Signer la transaction",
-      "sign_message": "Signer le message",
-      "you_are_signing": "Vous signez",
-      "resolve": "Accepter",
-      "reject": "Rejeter",
-      "sign_request": "Demande de signature",
-      "send_jkc": "Envoyer des JKC",
-      "sign": "Signer",
-      "create_transaction": "Créer une transaction",
-      "connecting": "Connexion en cours",
-      "connect": "Connecter",
-      "access_required": "Accès requis",
-      "to_address": "À l'adresse",
-      "connecting_account": "Connexion au compte",
-      "warning": "Attention",
-      "anyone_can_pay_warning": "Cette entrée a le drapeau SIGHASH_SINGLE | ANYONECANPAY",
-      "multi_psbt_sign": "Signer plusieurs transactions",
-      "fee": "Frais",
-      "switch": "Changer",
-      "switch_network": "Le site web souhaite que vous changiez de réseau vers",
-      "switch_network_title": "Changer de réseau",
-      "switch_network_request": "Demande de changement de réseau"
+    "sign_tx": "Signer la transaction",
+    "sign_message": "Signer le message",
+    "you_are_signing": "Vous signez",
+    "resolve": "Accepter",
+    "reject": "Rejeter",
+    "sign_request": "Demande de signature",
+    "send_jkc": "Envoyer des JKC",
+    "sign": "Signer",
+    "create_transaction": "Créer une transaction",
+    "connecting": "Connexion en cours",
+    "connect": "Connecter",
+    "access_required": "Accès requis",
+    "to_address": "À l'adresse",
+    "connecting_account": "Connexion au compte",
+    "warning": "Attention",
+    "anyone_can_pay_warning": "Cette entrée a le drapeau SIGHASH_SINGLE | ANYONECANPAY",
+    "multi_psbt_sign": "Signer plusieurs transactions",
+    "fee": "Frais",
+    "switch": "Changer",
+    "switch_network": "Le site web souhaite que vous changiez de réseau vers",
+    "switch_network_title": "Changer de réseau",
+    "switch_network_request": "Demande de changement de réseau"
   }
 }

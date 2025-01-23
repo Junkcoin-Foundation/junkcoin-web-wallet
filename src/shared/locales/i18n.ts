@@ -5,6 +5,8 @@ import ch from "./languages/ch.json";
 import kr from "./languages/kr.json";
 import de from "./languages/de.json";
 import pt from "./languages/pt.json";
+import es from "./languages/es.json";
+import it from "./languages/it.json";
 
 import i18n from "i18next";
 import { initReactI18next } from 'react-i18next';
@@ -32,6 +34,12 @@ export const resources = {
   },
   pt: {
     translation: pt,
+  },
+  es: {
+    translation: es,
+  },
+  it: {
+    translation: it,
   },
 };
 
@@ -73,6 +81,7 @@ export function getLanguages() {
     tr: "Turkish",
     vi: "Vietnamese",
     zh: "Chinese - China",
+    it: "Italian",
   };
 }
 

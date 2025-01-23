@@ -72,7 +72,7 @@ const TokenCard: FC<Props> = ({ token, openMintModal, openSendModal }) => {
           <div className="pb-2 max-h-[60vh] overflow-y-auto">
             {token.transfers.length ? (
               <>
-                <h3 className="mb-3 text-sm font-light text-center uppercase">
+                <h3 className="mb-3 text-sm font-light text-center normal-case">
                   Transfers
                 </h3>
                 <div className="flex flex-col gap-2">

@@ -10,11 +10,14 @@ import Modal from "@/ui/components/modal";
 import SignPsbtFileds from "@/ui/components/sign-psbt-fileds";
 import { useControllersState } from "@/ui/states/controllerState";
 import { ss } from "@/ui/utils";
+import { useAppState } from "@/ui/states/appState";
+import { getNetworkCurrency } from "@/ui/utils";
 
 const MultiPsbtSign = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [fields, setFields] = useState<IField[][]>([]);
   const [fee, setFee] = useState<string>("");
+  const { network } = useAppState(ss(["network"]));
   const [modalInputIndex, setModalInputIndex] = useState<number | undefined>(
     undefined
   );
@@ -32,7 +35,7 @@ const MultiPsbtSign = () => {
       return;
     }
     setFields(resultFields.fields);
-    setFee(resultFields.fee + " JKC");
+    setFee(resultFields.fee + " " + getNetworkCurrency(network));
     setLoading(false);
   }, [getPsbtFields, fields, notificationController]);
 

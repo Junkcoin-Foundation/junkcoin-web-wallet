@@ -6,6 +6,8 @@ import Layout from "../layout";
 import type { CreateTxProps } from "@/shared/interfaces/notification";
 import { t } from "i18next";
 import { ss } from "@/ui/utils";
+import { useAppState } from "@/ui/states/appState";
+import { getNetworkCurrency } from "@/ui/utils";
 
 const CreateTx = () => {
   const [psbt, setPsbt] = useState<CreateTxProps>();
@@ -13,7 +15,7 @@ const CreateTx = () => {
   const { notificationController } = useControllersState(
     ss(["notificationController"])
   );
-
+  const { network } = useAppState(ss(["network"]));
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     (async () => {
@@ -35,7 +37,7 @@ const CreateTx = () => {
     },
     {
       label: "Amount",
-      value: `${psbt.amount / 10 ** 8} JKC`,
+      value: `${psbt.amount / 10 ** 8} ${getNetworkCurrency(network)}`,
     },
     {
       label: "Fee Rate",

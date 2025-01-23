@@ -269,18 +269,18 @@ export class NintondoProvider
 
 declare global {
   interface Window {
-    nintondo: INintondoProvider;
+    junkie: INintondoProvider;
   }
 }
 
 const provider = new NintondoProvider({
   onInit: () => {
-    Object.defineProperty(window, "nintondo", {
+    Object.defineProperty(window, "junkie", {
       value: new Proxy(provider, {
         deleteProperty: () => true,
       }),
       writable: false,
     });
-    window.dispatchEvent(new Event("nintondo#initialized"));
+    window.dispatchEvent(new Event("junkie#initialized"));
   },
 });

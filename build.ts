@@ -156,6 +156,9 @@ const buildOptions: BuildOptions = {
     }),
     mergeManifests(),
   ],
+  loader: {
+    '.wasm': 'binary',
+  },
 };
 
 const makeArchive = () => {

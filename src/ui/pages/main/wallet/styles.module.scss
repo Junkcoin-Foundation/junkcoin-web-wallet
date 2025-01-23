@@ -45,7 +45,7 @@
 }
 
 .transactions {
-  @apply text-sm uppercase tracking-widest mt-5 mb-0.5 font-medium select-none px-2;
+  @apply text-sm normal-case tracking-widest mt-5 mb-0.5 font-medium select-none px-2;
 }
 
 .transactionsDiv {
@@ -57,7 +57,7 @@
 }
 
 .transaction {
-  @apply flex justify-between items-center w-full p-2 rounded-sm my-1 cursor-pointer my-2 px-4 py-1.5 rounded-xl border border-neutral-700 font-medium uppercase sticky top-0 bg-blue-950/50 backdrop-blur-sm z-10;
+  @apply flex justify-between items-center w-full p-2 rounded-sm my-1 cursor-pointer my-2 px-4 py-1.5 rounded-xl border border-neutral-700 font-medium normal-case sticky top-0 bg-blue-950/50 backdrop-blur-sm z-10;
 }
 
 .noTransactions {

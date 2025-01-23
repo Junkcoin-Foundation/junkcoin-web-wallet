@@ -34,7 +34,7 @@
     </style>
 </head>
 <body>
-    <h1>Nintondo Wallet Demo</h1>
+    <h1>JunkieWalley Demo</h1>
     <button id="checkWallet">Check Wallet Status</button>
     <button id="connectWallet">Connect Wallet</button>
     <div id="status"></div>
@@ -49,45 +49,45 @@
 
         // Check wallet button
         document.getElementById('checkWallet').addEventListener('click', async () => {
-            if (typeof window.nintondo !== 'undefined') {
+            if (typeof window.junkie !== 'undefined') {
                 try {
-                    const isConnected = await window.nintondo.isConnected();
-                    const account = await window.nintondo.getAccount();
+                    const isConnected = await window.junkie.isConnected();
+                    const account = await window.junkie.getAccount();
                     
                     updateStatus(`
                         Wallet detected!<br>
-                        Available methods: ${Object.keys(window.nintondo).join(', ')}<br>
+                        Available methods: ${Object.keys(window.junkie).join(', ')}<br>
                         isConnected: ${isConnected}<br>
                         Account: ${account || 'Not connected'}<br>
                     `);
                     
-                    console.log('Full nintondo object:', window.nintondo);
+                    console.log('Full junkie object:', window.junkie);
                 } catch (error) {
                     updateStatus(`Error checking wallet status: ${error.message}`);
                 }
             } else {
-                updateStatus('Nintondo wallet not detected. Please install the extension!');
+                updateStatus('JunkieWally not detected. Please install the extension!');
             }
         });
 
         // Connect wallet button
         document.getElementById('connectWallet').addEventListener('click', async () => {
             try {
-                if (typeof window.nintondo === 'undefined') {
-                    throw new Error('Nintondo wallet not detected');
+                if (typeof window.junkie === 'undefined') {
+                    throw new Error('Junkie wallet not detected');
                 }
 
                 // First check if already connected
-                const isConnected = await window.nintondo.isConnected();
+                const isConnected = await window.junkie.isConnected();
                 if (isConnected) {
-                    const account = await window.nintondo.getAccount();
+                    const account = await window.junkie.getAccount();
                     updateStatus(`Already connected!<br>Account: ${account}`);
                     return;
                 }
 
                 // Try to connect
-                const response = await window.nintondo.connect();
-                const account = await window.nintondo.getAccount();
+                const response = await window.junkie.connect();
+                const account = await window.junkie.getAccount();
                 
                 updateStatus(`
                     Connected successfully!<br>

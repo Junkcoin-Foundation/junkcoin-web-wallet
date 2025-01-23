@@ -27,7 +27,7 @@
       "create_new_account": "Criar nova conta",
       "change_password": "Alterar senha",
       "network_settings": "Configurações de rede",
-      "receive_bel": "Receber JKC",
+      "receive_bel": "Receber {{currency}}",
       "switch_wallet": "Trocar carteira",
       "transaction_info": "Informações da transação",
       "settings": "Configurações",
@@ -162,7 +162,7 @@
       "inscription_id": "ID de inscrição"
     },
     "create_send": {
-      "minimum_amount_error": "A quantidade mínima é 0,00001 JKC",
+      "minimum_amount_error": "A quantidade mínima é 0,00001 {{currency}}",
       "fee_exceeds_amount_error": "A taxa excede a quantidade",
       "address_error": "Endereço do destinatário inválido",
       "not_enough_money_error": "Não há dinheiro suficiente em sua conta",
@@ -233,8 +233,8 @@
   "hooks": {
     "transaction": {
       "insufficient_balance_0": "Saldo insuficiente. O saldo não relacionado a inscrições",
-      "insufficient_balance_1": "JKC) é menor que",
-      "insufficient_balance_2": "JKC",
+      "insufficient_balance_1": "{{currency}}) é menor que",
+      "insufficient_balance_2": "{{currency}}",
       "too_many_utxos": "Muitos UTXOs. Você deve consolidá-los ou usar um valor menor para enviar",
       "too_long_mempool_chain": "A cadeia de mempool é muito longa. Você deve esperar até que ela seja confirmada"
     },
@@ -300,7 +300,7 @@
     "resolve": "Resolver",
     "reject": "Rejeitar",
     "sign_request": "Solicitação de assinatura",
-    "send_jkc": "Enviar JKC",
+    "send_jkc": "Enviar {{currency}}",
     "sign": "Assinar",
     "create_transaction": "Criar transação",
     "connecting": "Conectando",

@@ -15,14 +15,16 @@ import cn from "classnames";
 import { t } from "i18next";
 import { Link } from "react-router-dom";
 import s from "../styles.module.scss";
-
+import { useAppState } from "@/ui/states/appState";
+import { getNetworkCurrency } from "@/ui/utils";
+import { ss } from "@/ui/utils";
 import { calcBalanceLength } from "@/ui/utils";
 
 const AccountPanel = () => {
   const { currentPrice } = useTransactionManagerContext();
   const currentAccount = useGetCurrentAccount();
   const currentWallet = useGetCurrentWallet();
-
+  const { network } = useAppState(ss(["network"]));
   const cardinalBalance = currentAccount?.balance ?? 0;
   const ordinalBalance = currentAccount?.inscriptionBalance ?? 0;
   const balance = cardinalBalance / 10 ** 8 + ordinalBalance;
@@ -48,7 +50,7 @@ const AccountPanel = () => {
                 ) : undefined}
               </div>
             )}
-            <span className="text-xl pb-0.5">JKC</span>
+            <span className="text-xl pb-0.5">{getNetworkCurrency(network)}</span>
           </div>
         </div>
 

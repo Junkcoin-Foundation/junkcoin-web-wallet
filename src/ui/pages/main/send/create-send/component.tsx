@@ -20,7 +20,7 @@ import AddressInput from "./address-input";
 import FeeInput from "./fee-input";
 import s from "./styles.module.scss";
 import { useAppState } from "@/ui/states/appState";
-
+import { getNetworkCurrency } from "@/ui/utils";
 interface FormType {
   address: string;
   amount: string;
@@ -30,7 +30,7 @@ interface FormType {
 
 const CreateSend = () => {
   const formId = useId();
-
+  const { network } = useAppState(ss(["network"]));
   const [isOpenModal, setOpenModal] = useState<boolean>(false);
   const [isSaveAddress, setIsSaveAddress] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormType>({
@@ -53,7 +53,6 @@ const CreateSend = () => {
   const [inscriptionTransaction, setInscriptionTransaction] =
     useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const { network } = useAppState(ss(["network"]));
 
   const send = async ({
     address,
@@ -299,11 +298,11 @@ const CreateSend = () => {
       <div>
         {!inscriptionTransaction && (
           <div className="flex justify-between py-2 px-4 mb-11">
-            <div className="text-xs uppercase text-gray-400">{`${t(
+            <div className="text-xs normal-case text-gray-400">{`${t(
               "wallet_page.amount_in_transaction"
             )}`}</div>
             <span className="text-sm font-medium">
-              {`${((currentAccount?.balance ?? 0) / 10 ** 8).toFixed(8)} JKC`}
+              {`${((currentAccount?.balance ?? 0) / 10 ** 8).toFixed(8)} ${getNetworkCurrency(network)}`}
             </span>
           </div>
         )}

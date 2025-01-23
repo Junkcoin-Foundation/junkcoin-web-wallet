@@ -7,6 +7,8 @@ import "dayjs/locale/ko";
 import "dayjs/locale/fr";
 import "dayjs/locale/de";
 import "dayjs/locale/pt";
+import "dayjs/locale/es";
+import "dayjs/locale/it";
 import { useAppState } from "@/ui/states/appState";
 import { ss } from "@/ui/utils";
 
@@ -24,6 +26,8 @@ const locales = {
   kr: "ko",
   de: "de",
   pt: "pt",
+  es: "es",
+  it: "it",
 };
 
 const todayLocale = {
@@ -34,6 +38,8 @@ const todayLocale = {
   kr: "오늘",
   de: "Heute",
   pt: "Hoje",
+  es: "Hoy",
+  it: "Oggi",
 };
 
 export default function DateComponent({ date }: Props) {

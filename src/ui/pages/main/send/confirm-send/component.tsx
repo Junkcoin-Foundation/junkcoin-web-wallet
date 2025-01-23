@@ -9,6 +9,9 @@ import { t } from "i18next";
 import { useUpdateCurrentAccountBalance } from "@/ui/hooks/wallet";
 import { useTransactionManagerContext } from "@/ui/utils/tx-ctx";
 import { useGetCurrentAccount } from "@/ui/states/walletState";
+import { useAppState } from "@/ui/states/appState";
+import { getNetworkCurrency } from "@/ui/utils";
+import { ss } from "@/ui/utils";
 
 const ConfirmSend = () => {
   const location = useLocation();
@@ -19,7 +22,7 @@ const ConfirmSend = () => {
   const updateBalance = useUpdateCurrentAccountBalance();
   const { updateTransactions } = useTransactionManagerContext();
   const currentAccount = useGetCurrentAccount();
-
+  const { network } = useAppState(ss(["network"]));
   const confirmSend = async () => {
     setLoading(true);
     try {
@@ -65,11 +68,11 @@ const ConfirmSend = () => {
       ),
       value:
         location.state.amount +
-        (location.state.inscriptionTransaction ? "" : " JKC"),
+        (location.state.inscriptionTransaction ? "" : " " + getNetworkCurrency(network)),
     },
     {
       label: t("send.confirm_send.fee"),
-      value: `${location.state.feeAmount / 10 ** 8} JKC (${
+      value: `${location.state.feeAmount / 10 ** 8} ${getNetworkCurrency(network)} (${
         location.state.includeFeeInAmount
           ? t("send.confirm_send.included")
           : t("send.confirm_send.not_included")

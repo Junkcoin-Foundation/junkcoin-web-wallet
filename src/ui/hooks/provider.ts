@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useControllersState } from "../states/controllerState";
 import { useCallback, useEffect } from "react";
-import { isNotification, ss } from "../utils";
+import { getNetworkCurrency, isNotification, ss } from "../utils";
 import {
   IField,
   IFieldValue,
@@ -127,7 +127,7 @@ export const useDecodePsbtInputs = () => {
           label: `Output #${i}`,
           value: {
             text: `${f.address}`,
-            value: `${toFixed(f.value / 10 ** 8)} JKC`,
+            value: `${toFixed(f.value / 10 ** 8)} ${getNetworkCurrency(network)}`,
           },
         });
       });
@@ -154,19 +154,19 @@ export const useDecodePsbtInputs = () => {
             value = {
               anyonecanpay: true,
               inscriptions: foundInscriptions.map((i) => i.genesis),
-              value: `${toFixed(inputValue)} JKC`,
+              value: `${toFixed(inputValue)} ${getNetworkCurrency(network)}`,
             };
           } else {
             value = {
               anyonecanpay: true,
               text: `${outpoint.split("i")[0]}`,
-              value: `${toFixed(inputValue)} JKC`,
+              value: `${toFixed(inputValue)} ${getNetworkCurrency(network)}`,
             };
           }
         } else {
           value = {
             text: `${outpoint.split("i")[0]}`,
-            value: `${toFixed(inputValue)} JKC`,
+            value: `${toFixed(inputValue)} ${getNetworkCurrency(network)}`,
           };
         }
 

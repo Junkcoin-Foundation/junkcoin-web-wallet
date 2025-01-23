@@ -15,7 +15,9 @@ import LoadingIcons, { TailSpin } from "react-loading-icons";
 import { useGetCurrentAccount } from "@/ui/states/walletState";
 import DateComponent from "@/ui/components/date";
 import { Circle } from "rc-progress";
-
+import { getNetworkCurrency } from "@/ui/utils";
+import { useAppState } from "@/ui/states/appState";
+import { ss } from "@/ui/utils";
 export function groupBy<T, K extends keyof any>(
   array: T[],
   key: (item: T) => K
@@ -34,6 +36,7 @@ const TransactionList = () => {
   const { lastBlock, transactions, loadMoreTransactions, currentPrice } =
     useTransactionManagerContext();
   const currentAccount = useGetCurrentAccount();
+  const { network } = useAppState(ss(["network"]));
   const { ref, inView } = useInView();
   const [loading, setLoading] = useState(false);
 
@@ -78,7 +81,7 @@ const TransactionList = () => {
 
         return (
           <div className="w-full" key={key}>
-            <div className="my-2 px-4 py-1.5 rounded-xl border border-neutral-700 font-medium uppercase sticky top-0 bg-blue-950/50 backdrop-blur-sm z-10 w-max">
+            <div className="my-2 px-4 py-1.5 rounded-xl border border-neutral-700 font-medium normal-case sticky top-0 bg-blue-950/50 backdrop-blur-sm z-10 w-max">
               {isMempool ? "Unconfirmed" : <DateComponent date={Number(key)} />}
             </div>
 
@@ -157,7 +160,7 @@ const TransactionList = () => {
                       })}
                     >
                       {isIncome ? "+ " : "- "}
-                      {value} JKC
+                      {value} {getNetworkCurrency(network)}
                     </div>
                     <div className="text-xs text-gray-400 text-right">
                       {parseFloat((currentPrice! * Number(value)).toFixed(6))} $

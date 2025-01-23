@@ -21,6 +21,7 @@ import { customFetch } from "@/shared/utils";
 import { storageService } from "@/background/services";
 import { getBaseUrl } from "@/shared/utils";
 import { useAppState } from "@/ui/states/appState";
+import { getNetworkCurrency } from "@/ui/utils";
 
 const TransactionInfo = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -75,14 +76,14 @@ const TransactionInfo = () => {
               <p className={s.transactionP}>
                 {t("transaction_info.fee_label")}
               </p>
-              <span>{tx.fee / 10 ** 8} JKC</span>
+              <span>{tx.fee / 10 ** 8} {getNetworkCurrency(network)}</span>
             </div>
             <div className={s.group}>
               <p className={s.transactionP}>
                 {t("transaction_info.value_label")}
               </p>
               <span>
-                {tx.vout.reduce((acc, cur) => cur.value + acc, 0) / 10 ** 8} JKC
+                {tx.vout.reduce((acc, cur) => cur.value + acc, 0) / 10 ** 8} {getNetworkCurrency(network)}
               </span>
             </div>
 
@@ -136,7 +137,7 @@ interface ITableItem {
 
 const TableItem: FC<ITableItem> = ({ items, currentAddress, label }) => {
   const currentId = useId();
-
+  const { network } = useAppState(ss(["network"]));
   const addressLength = (value: number) => {
     const newValue = (value / 10 ** 8).toFixed(2);
     if (newValue.length > 7) {
@@ -157,7 +158,7 @@ const TableItem: FC<ITableItem> = ({ items, currentAddress, label }) => {
             <div className={s.tableGroup}>
               <span>#{idx}</span>
               <span className={s.tableSecond}>
-                {(i.value / 10 ** 8).toFixed(8)} JKC
+                {(i.value / 10 ** 8).toFixed(8)} {getNetworkCurrency(network)}
               </span>
             </div>
 
