@@ -1,0 +1,321 @@
+{
+    "wallet_page": {
+      "transactions": "Transaksi",
+      "no_transactions": "Tidak ada transaksi",
+      "no_inscriptions": "Tidak ada pendaftaran",
+      "receive": "Terima",
+      "send": "Kirim",
+      "nft": "NFT",
+      "amount_in_transactions": "Saldo tersedia"
+    },
+    "settings": {
+      "language": "Bahasa",
+      "logout": "Keluar",
+      "connected_sites": "Situs yang terhubung",
+      "expand_view": "Perluas tampilan",
+      "security_settings": "Pengaturan keamanan",
+      "address_type": "Jenis alamat"
+    },
+    "components": {
+      "layout": {
+          "create_new_wallet": "Buat dompet baru",
+          "send": "Kirim",
+          "connected_sites": "Situs yang terhubung",
+          "change_language": "Ganti bahasa",
+          "switch_account": "Ganti akun",
+          "change_address_type": "Ganti jenis alamat",
+          "create_new_account": "Buat akun baru",
+          "change_password": "Ganti kata sandi",
+          "network_settings": "Pengaturan jaringan",
+          "receive_bel": "Terima JKC",
+          "switch_wallet": "Ganti dompet",
+          "transaction_info": "Informasi transaksi",
+          "settings": "Pengaturan",
+          "show_mnemonic": "Tampilkan frasa mnemonic",
+          "show_private_key": "Tampilkan kunci pribadi",
+          "restore_from_mnemonic": "Pulihkan dari frasa mnemonic",
+          "restore_from_private_key": "Pulihkan dari kunci pribadi",
+          "security": "Keamanan",
+          "advanced": "Lanjutan",
+          "discover": "Jelajahi",
+          "inscriptions": "Pendaftaran",
+          "wallet_settings": "Pengaturan dompet"
+      }
+      },
+      "check_password": {
+      "incorrect_password_error": "Kata sandi salah",
+      "password": "Kata sandi",
+      "continue": "Lanjutkan",
+      "warning": "Layar berikut akan menampilkan data sensitif, seperti kunci pribadi Anda. Pastikan Anda berada di lingkungan yang aman sebelum melanjutkan."
+      },
+      "password_input": {
+      "should_be_more_than_1_symbol": "Harus lebih dari 1 karakter",
+      "should_be_less_than_70_symbols": "Harus kurang dari 70 karakter",
+      "required": "Kata sandi diperlukan"
+      },
+      "rename": {
+      "enter_new_name": "Masukkan nama baru",
+      "minimum_length": "Panjang minimum",
+      "maximum_length": "Panjang maksimum",
+      "name_is_required": "Nama diperlukan",
+      "save": "Simpan",
+      "rename": "Ubah nama"
+      },
+      "card": {
+      "close": "Tutup",
+      "root_account": "Akun utama"
+      },
+      "inscription_card": {
+      "modal_title": "Pendaftaran",
+      "id": "ID",
+      "address": "Alamat",
+      "outputValue": "Nilai keluaran",
+      "content": "Konten",
+      "contentLength": "Panjang konten",
+      "contentType": "Jenis konten",
+      "timeStamp": "Waktu",
+      "genesisHeight": "Tinggi Genesis",
+      "genesisFee": "Biaya Genesis",
+      "genesisTransaction": "Transaksi Genesis",
+      "location": "Lokasi",
+      "output": "Keluaran",
+      "offset": "Offset",
+      "preview": "Pratinjau"
+      },
+      "token_card": {
+      "transferable_balance": "Saldo yang dapat ditransfer",
+      "balance": "Saldo",
+      "create_transfer": "Buat transfer",
+      "send": "Kirim",
+      "no_transfers": "Tidak ada transfer"
+    },
+    "change_password": {
+      "old_password": "Kata sandi lama",
+      "new_password": "Kata sandi baru",
+      "confirm_password": "Konfirmasi kata sandi",
+      "change_password": "Ganti kata sandi",
+      "errors": {
+          "incorrect_password": "Kata sandi salah",
+          "passwords_do_not_match": "Kata sandi tidak cocok"
+      }
+    },
+    "connected_sites": {
+      "no_sites_message": "Anda belum menghubungkan situs apa pun"
+    },
+    "create_password": {
+      "password": "Kata sandi",
+      "confirm_password": "Konfirmasi kata sandi",
+      "create_password": "Buat kata sandi"
+    },
+    "login": {
+      "password": "Kata sandi",
+      "login": "Masuk",
+      "welcome_back": "Selamat datang kembali, Kapten!"
+    },
+    "new_account": {
+      "max_length_error": "Panjang maksimum nama adalah 10",
+      "name_taken_error": "Nama akun ini sudah digunakan",
+      "account_created_message": "Akun baru berhasil dibuat",
+      "enter_name_label": "Masukkan nama:",
+      "create_new_account": "Buat akun baru"
+    },
+    "new_wallet": {
+      "new_mnemonic_label": "Frasa mnemonic baru",
+      "restore_mnemonic_label": "Pulihkan frasa mnemonic",
+      "restore_from_private_key_label": "Pulihkan dari kunci pribadi",
+      "restore_from_label": "Pulihkan dari",
+      "step_1": "Langkah 1",
+      "step_2": "Langkah 2",
+      "continue": "Lanjutkan",
+      "new_mnemonic": {
+          "error_phrase_blank": "Frasa mnemonic kosong",
+          "warning": "Jika Anda kehilangan kata-kata ini, Anda tidak akan pernah bisa memulihkan akun Anda yang hilang",
+          "i_saved_this_phrase": "Saya sudah menyimpan frasa ini",
+          "copy": "Salin"
+      },
+      "restore_mnemonic": {
+          "incomplete_phrase_error": "Harap masukkan semua kata",
+          "invalid_words_error": "Kata-kata tidak valid",
+          "show_root_acc": "Gunakan turunan warisan"
+      },
+      "restore_private": {
+          "private_key": "Kunci pribadi",
+          "recover": "Pulihkan",
+          "invalid_private_key_error": "Kunci pribadi tidak valid"
+      },
+      "hd_path": "Jalur HD",
+      "passphrase": "Frasa sandi"
+    },
+    "receive": {
+      "click_to_copy": "Klik untuk menyalin",
+      "copy_address": "Salin alamat"
+    },
+    "send": {
+      "confirm_send": {
+        "to_addrses": "Ke alamat",
+        "from_address": "Dari alamat",
+        "amount": "Jumlah",
+        "fee": "Biaya",
+        "included": "termasuk",
+        "not_included": "tidak termasuk",
+        "confirm": "Konfirmasi",
+        "inscription_id": "ID pendaftaran"
+      },
+      "create_send": {
+        "minimum_amount_error": "Jumlah minimum adalah 0.00001 JKC",
+        "fee_exceeds_amount_error": "Biaya melebihi jumlah",
+        "address_error": "Alamat penerima tidak valid",
+        "not_enough_money_error": "Dana di akun Anda tidak mencukupi",
+        "not_enough_fee_error": "Tingkatkan biaya",
+        "fee_is_text_error": "Biaya harus berupa angka bulat",
+        "default_error": "Terjadi kesalahan",
+        "address": "Alamat",
+        "amount": "Jumlah",
+        "amount_to_send": "Jumlah untuk dikirim",
+        "max_amount": "MAX",
+        "fee_label": "Biaya",
+        "include_fee_in_the_amount_label": "Sertakan biaya dalam jumlah",
+        "save_address_for_the_next_payments_label": "Simpan alamat untuk pembayaran berikutnya",
+        "continue": "Lanjutkan",
+        "fee_input": {
+          "fast": "Cepat",
+          "slow": "Lambat",
+          "custom": "Kustom"
+        },
+        "address_input": {
+          "address_book": "Buku alamat",
+          "address_placeholder": "Alamat penerima"
+        },
+        "address_book": {
+          "address_book": "Buku alamat",
+          "no_addresses": "Tidak ada alamat di sini"
+        }
+      },
+      "finalle_send": {
+        "success": "Berhasil",
+        "explorer": "Penjelajah",
+        "back": "Kembali",
+        "rebroadcast_transaction": "Kirim ulang transaksi",
+        "successfully_rebroadcasted": "Transaksi berhasil dikirim ulang"
+        }
+    },
+    "switch_account": {
+      "name_already_taken_error": "Nama ini sudah digunakan",
+      "copy_address": "Salin alamat",
+      "rename_account": "Ubah nama akun",
+      "export_private_key": "Ekspor kunci pribadi",
+      "show_pk": {
+        "copy": "Salin"
+      }
+    },
+    "switch_wallet": {
+      "rename_wallet": "Ubah nama dompet",
+      "show_mnemonic_private_key": "Tampilkan kunci mnemonic",
+      "last_wallet_error": "Anda tidak dapat menghapus dompet terakhir Anda",
+      "remove_wallet": "Hapus dompet",
+      "are_you_sure": "Apakah Anda yakin ingin menghapus?",
+      "yes": "Ya",
+      "no": "Tidak",
+      "copy": "Salin"
+    },
+    "transaction_info": {
+      "txid": "TxId",
+      "confirmations_label": "Konfirmasi",
+      "fee_label": "Biaya",
+      "value_label": "Nilai",
+      "open_in_explorer": "Buka di penjelajah",
+      "copied": "Disalin",
+      "inputs": "Input",
+      "outputs": "Output",
+      "details": "Detail",
+      "your_address": "Anda"
+    },
+    "hooks": {
+      "transaction": {
+          "insufficient_balance_0": "Saldo tidak cukup. Saldo di luar pendaftaran",
+          "insufficient_balance_1": "JKC) kurang dari",
+          "insufficient_balance_2": "JKC",
+          "too_many_utxos": "Terlalu banyak UTXO. Anda perlu mengonsolidasikannya atau mengirim jumlah yang lebih kecil",
+          "too_long_mempool_chain": "Rantai mempool terlalu panjang. Anda perlu menunggu konfirmasinya"
+      },
+      "wallet": {
+          "last_wallet_error": "Anda tidak dapat menghapus dompet terakhir Anda"
+      }
+    },
+    "advanced": {
+      "root_acc_warning": "Gunakan turunan warisan",
+      "blank": "Tidak ada yang dapat ditampilkan untuk jenis dompet Anda"
+    },
+    "inscription_details": {
+      "content_length": "Panjang konten",
+      "status.block_height": "Tinggi blok",
+      "content_type": "Jenis konten",
+      "genesis": "Genesis",
+      "preview": "Pratinjau",
+      "content": "Konten",
+      "offset": "Offset",
+      "owner": "Pemilik",
+      "value": "Nilai",
+      "outpoint": "Outpoint",
+      "inscription_id": "ID pendaftaran",
+      "status.block_time": "Waktu blok",
+      "title": "Pendaftaran",
+      "inscription_number": "Nomor pendaftaran"
+    },
+      "inscriptions": {
+      "inscription_not_found": "Arrr, junkinals hilang dalam ombak, pelaut!",
+      "tokens_not_found": "Token tidak ditemukan",
+      "inscription_search_placeholder": "Nomor/ID pendaftaran",
+      "token_search_placeholder": "Nama token",
+      "mint_token_modal_title": "Buat token transfer",
+      "send_token_modal_title": "Kirim token",
+      "amount_to_mint": "Jumlah untuk dicetak",
+      "transfers_count": "Jumlah transfer",
+      "amount_is_text_error": "Jumlah harus berupa angka bulat",
+      "transfer_count_is_text_error": "Jumlah transfer harus berupa angka bulat",
+      "amount_cannot_be_fractional": "Jumlah tidak boleh berupa pecahan",
+      "transfer_countcannot_be_fractional": "Jumlah transfer tidak boleh berupa pecahan",
+      "amount_exceeds_balance": "Jumlah melebihi saldo",
+      "transfer_inscribed": "Transfer berhasil didaftarkan",
+      "failed_inscribe_transfer": "Gagal mendaftarkan transfer",
+      "failed_inscribe_transfer2": "Transaksi ini akan diproses nanti",
+      "choose_transfer": "Pilih transfer untuk dikirim",
+      "0_selected_inscriptions_error": "0 pendaftaran yang dipilih",
+      "success_send_transfer": "Transfer berhasil dikirim",
+      "failed_send_transfer": "Gagal mengirim transfer",
+      "inscribe": "Daftarkan",
+      "transfer": "Transfer",
+      "not_enough_balance": "Saldo tidak mencukupi",
+      "not_enough_token_balance": "Saldo token tidak mencukupi",
+      "minimum_transfer_count": "Jumlah minimum transfer adalah 1",
+      "minimum_amount_error": "Jumlah minimum token adalah 1",
+      "input_amount_first": "Masukkan jumlah terlebih dahulu",
+      "tick_is_not_set": "Centang belum diatur",
+      "select_all": "Pilih semua"
+    },
+    "provider": {
+      "sign_tx": "Tandatangani transaksi",
+      "sign_message": "Tandatangani pesan",
+      "you_are_signing": "Anda menandatangani",
+      "resolve": "Terima",
+      "reject": "Tolak",
+      "sign_request": "Permintaan tanda tangan",
+      "send_jkc": "Kirim JKC",
+      "sign": "Tandatangani",
+      "create_transaction": "Buat transaksi",
+      "connecting": "Menghubungkan",
+      "connect": "Hubungkan",
+      "access_required": "Akses diperlukan",
+      "to_address": "Ke alamat",
+      "connecting_account": "Menghubungkan ke akun",
+      "warning": "Peringatan",
+      "anyone_can_pay_warning": "Entri ini memiliki tanda WARNING | ANYONECANPAY",
+      "multi_psbt_sign": "Tandatangani beberapa transaksi",
+      "fee": "Biaya",
+      "switch": "Ganti",
+      "switch_network": "Situs web meminta Anda untuk beralih ke jaringan",
+      "switch_network_title": "Ganti judul jaringan",
+      "switch_network_request": "Permintaan untuk mengganti jaringan"
+    }
+  }
+  

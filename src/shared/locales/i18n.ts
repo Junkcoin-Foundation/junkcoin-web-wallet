@@ -7,6 +7,7 @@ import de from "./languages/de.json";
 import pt from "./languages/pt.json";
 import es from "./languages/es.json";
 import it from "./languages/it.json";
+import id from "./languages/id.json";
 
 import i18n from "i18next";
 import { initReactI18next } from 'react-i18next';
@@ -40,6 +41,9 @@ export const resources = {
   },
   it: {
     translation: it,
+  },
+  id: {
+    translation: id,
   },
 };
 

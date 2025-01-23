@@ -9,6 +9,7 @@ import "dayjs/locale/de";
 import "dayjs/locale/pt";
 import "dayjs/locale/es";
 import "dayjs/locale/it";
+import "dayjs/locale/id";
 import { useAppState } from "@/ui/states/appState";
 import { ss } from "@/ui/utils";
 
@@ -40,6 +41,7 @@ const todayLocale = {
   pt: "Hoje",
   es: "Hoy",
   it: "Oggi",
+  id: "Hari ini",
 };
 
 export default function DateComponent({ date }: Props) {
