@@ -201,8 +201,8 @@ export default function PagesLayout() {
             >
               <span>
                 {currentRoute.pathname === "/pages/inscriptions"
-                  ? "Inscriptions"
-                  : "JRC-20"}
+                  ? "Junkscriptions"
+                  : "Junk-20"}
               </span>
               <ArrowsUpDownIcon className="w-4 h-4" />
             </div>

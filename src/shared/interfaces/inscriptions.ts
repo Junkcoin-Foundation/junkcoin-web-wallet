@@ -38,7 +38,7 @@ export interface ContentInscriptionResopnse {
 
 export interface ContentInscription {
   number: number;
-  id: string;
+  inscription_id: string;
   file_type: string;
   created: number;
 }

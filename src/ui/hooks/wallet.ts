@@ -196,7 +196,7 @@ export const useUpdateCurrentAccountBalance = () => {
 
     await updateSelectedAccount({
       balance: res.balance,
-      inscriptionCounter: res.count,
+      inscriptionCounter: res.amount / 10 ** 5,
       inscriptionBalance: res.amount / 10 ** 8,
     });
   }, [apiController, updateSelectedAccount, currentAccount?.address]);

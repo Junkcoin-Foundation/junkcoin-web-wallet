@@ -55,7 +55,7 @@ export const TESTNET_API_URL = "https://testnet-api.junkiewally.xyz";
 export const TESTNET_EXPLORER_URL = "https://explorer-testnet.junk-coin.com"
 
 const CONTENT_URL =
-  process.env.CONTENT_URL ?? "https://content.nintondo.io/api/pub";
+  process.env.CONTENT_URL ?? "https://ord.junkiewally.xyz";
 export const getContentUrl = () => CONTENT_URL;
 
 export const getApiUrl = (network: Network) =>

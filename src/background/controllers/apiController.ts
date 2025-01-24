@@ -214,16 +214,54 @@ class ApiController implements IApiController {
 
   async getContentPaginatedInscriptions(address: string, page: number) {
     return await this.fetch<ContentInscriptionResopnse>({
-      path: `/search?account=${address}&page_size=6&page=${page}`,
+      path: `/inscriptions/balance/${address}/${page}`,
       service: "content",
     });
   }
 
   async searchContentInscriptionByInscriptionId(inscriptionId: string) {
-    return await this.fetch<ContentDetailedInscription>({
-      path: `/${inscriptionId}/info`,
+    const htmlContent = await this.fetch<string>({
+      path: `/inscription/${inscriptionId}`,
       service: "content",
+      json: false,
     });
+
+    if (!htmlContent) return;
+
+    const preMatch = htmlContent.match(/<pre[^>]*>(.*?)<\/pre>/s);
+    if (!preMatch?.[1]) return;
+
+    const genesisHeight = htmlContent.match(/genesis height[^>]*>(\d+)</)?.[1];
+    const genesisFee = htmlContent.match(/genesis fee[^>]*>(\d+)</)?.[1];
+    const contentType = htmlContent.match(/content type[^>]*>([\w/; -]+)</)?.[1];
+    const contentLength = htmlContent.match(/content length[^>]*>(\d+)/)?.[1];
+    const timestamp = htmlContent.match(/timestamp[^>]*>([^<]+UTC)/)?.[1];
+
+    try {
+      const jsonContent = JSON.parse(preMatch[1]);
+      const created = timestamp ? new Date(timestamp).getTime() / 1000 : 0;
+
+      return {
+        number: 0,
+        id: inscriptionId,
+        file_type: contentType?.includes('json') ? 'JSON' : 'TXT',
+        mime: contentType || 'text/plain',
+        file_size: parseInt(contentLength || '0'),
+        created: Math.floor(created),
+        creation_block: parseInt(genesisHeight || '0'),
+        genesis_fee: parseInt(genesisFee || '0'),
+        invalid_token_reason: null,
+        protocol: {
+          name: jsonContent?.p || '',
+          valid: true,
+          invalid_reason: null,
+          invalid_token_reason: null
+        },
+        collection: null
+      } as ContentDetailedInscription;
+    } catch {
+      return;
+    }
   }
 
   async searchContentInscriptionByInscriptionNumber(

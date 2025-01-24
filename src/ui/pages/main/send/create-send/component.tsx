@@ -6,6 +6,7 @@ import { useGetCurrentAccount } from "@/ui/states/walletState";
 import { getAddressType, normalizeAmount, ss } from "@/ui/utils";
 import cn from "classnames";
 import { t } from "i18next";
+import { useCreateOrdTx } from "@/ui/hooks/transactions";
 import {
   ChangeEventHandler,
   MouseEventHandler,
@@ -44,7 +45,7 @@ const CreateSend = () => {
   console.log(currentAccount);
   const createTx = useCreateJKCTxCallback();
   // TODO: uncomment when inscription transactions are implemented
-  // const createOrdTx = useCreateOrdTx();
+  const createOrdTx = useCreateOrdTx();
   const navigate = useNavigate();
   const location = useLocation();
   const [inscription, setInscription] = useState<Inscription | undefined>(
@@ -88,22 +89,21 @@ const CreateSend = () => {
       let data;
 
       try {
-        // TODO: uncomment when inscription transactions are implemented
-        // data = !inscriptionTransaction
-        //   ? await createTx(
-        //       address,
-        //       Number((amount * 10 ** 8).toFixed(0)),
-        //       feeRate,
-        //       includeFeeInAmount
-        //     )
-        //   : await createOrdTx(address, feeRate, inscription!);
+        data = !inscriptionTransaction
+          ? await createTx(
+              address,
+              Number((amount * 10 ** 8).toFixed(0)),
+              feeRate,
+              includeFeeInAmount
+            )
+          : await createOrdTx(address, feeRate, inscription!);
 
-        data = await createTx(
-          address,
-          Number((amount * 10 ** 8).toFixed(0)),
-          feeRate,
-          includeFeeInAmount
-        );
+        // data = await createTx(
+        //   address,
+        //   Number((amount * 10 ** 8).toFixed(0)),
+        //   feeRate,
+        //   includeFeeInAmount
+        // );
       } catch (e) {
         const error = e as Error;
         if ("message" in error) {

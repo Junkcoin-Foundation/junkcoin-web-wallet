@@ -31,8 +31,7 @@ const Inscriptions = () => {
   if (
     (currentAccount?.inscriptionCounter === undefined && managerLoading) ||
     !inscriptions
-  )
-    return <TailSpin className="animate-spin" />;
+  ) return <TailSpin className="animate-spin" />;
 
   return (
     <div className={s.inscriptionDiv}>
@@ -42,7 +41,7 @@ const Inscriptions = () => {
             ? inscriptions
             : searchInscriptions
           ).map((f, i) => (
-            <InscriptionCard key={i} inscriptionId={f.id} />
+            <InscriptionCard key={i} inscriptionId={f.inscription_id} inscription={f}/>
           ))}
         </div>
       </div>
@@ -57,7 +56,7 @@ const Inscriptions = () => {
             pageCount={Math.ceil(
               ((typeof searchInscriptions === "undefined"
                 ? currentAccount?.inscriptionCounter
-                : searchInscriptions?.length) ?? 0) / 6
+                : searchInscriptions?.length) ?? 0) / 10
             )}
             visiblePageButtonsCount={5}
             leftBtnPlaceholder={<ChevronLeftIcon className="w-4 h-4" />}

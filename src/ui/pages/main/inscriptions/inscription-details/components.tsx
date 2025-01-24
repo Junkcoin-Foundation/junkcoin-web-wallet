@@ -169,10 +169,11 @@ const InscriptionDetails = () => {
       <div className="px-4">
         <div className="flex justify-center w-[318px] h-[318px] rounded-xl overflow-hidden">
           <Iframe
-            preview={`${getContentUrl(network)}/html/${
+            preview={`${getContentUrl()}/inscription/${
               inscription.inscription_id
             }`}
             size="big"
+            extractSelector="pre"
           />
         </div>
 
@@ -188,9 +189,7 @@ const InscriptionDetails = () => {
               <div
                 onClick={async () => {
                   await openContent(
-                    `${getContentUrl(network)}/${
-                      f.key === "content" ? "content" : "preview"
-                    }/${inscription.inscription_id}`
+                    `${getContentUrl()}/junkscription/${inscription.inscription_id}`
                   );
                 }}
                 className="text-orange-400 cursor-pointer text-sm font-medium"

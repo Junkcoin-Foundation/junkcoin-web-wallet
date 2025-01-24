@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 
 import { IField } from "@/shared/interfaces/provider";
 import { t } from "i18next";
@@ -18,6 +18,48 @@ const SignPsbtFileds: FC<SignPsbtFiledsProps> = ({
   setModalInputIndexHandler,
 }) => {
   const { network } = useAppState(ss(["network"]));
+  const [inscriptionContents, setInscriptionContents] = useState<{[key: string]: string}>({});
+
+  useEffect(() => {
+    fields.forEach(f => {
+      console.log('Processing field:', f);
+      if (f.value.inscriptions) {
+        console.log('Found inscriptions:', f.value.inscriptions);
+        f.value.inscriptions.forEach(k => {
+          const url = `${getContentUrl()}/inscription/${k}`;
+          console.log('Fetching from URL:', url);
+          
+          fetch(url)
+            .then(res => {
+              console.log('Fetch response status:', res.status);
+              return res.text();
+            })
+            .then(html => {
+              console.log('Received HTML:', html);
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              const element = doc.querySelector('pre');
+              console.log('Found pre element:', element);
+              if (element) {
+                const content = element.textContent || '';
+                console.log('Pre element content:', content);
+                setInscriptionContents(prev => {
+                  const newState = {
+                    ...prev,
+                    [k]: content
+                  };
+                  console.log('Updated inscription contents:', newState);
+                  return newState;
+                });
+              }
+            })
+            .catch(error => {
+              console.error('Error fetching inscription:', error);
+            });
+        });
+      }
+    });
+  }, [fields, network]);
 
   return (
     <div className="flex flex-col gap-4 w-full">
@@ -58,10 +100,20 @@ const SignPsbtFileds: FC<SignPsbtFiledsProps> = ({
                     key={j}
                     className="flex flex-col items-center justify-center p-2"
                   >
-                    <img
-                      src={`${getContentUrl(network)}/preview/${k}`}
-                      className="object-cover w-full rounded-xl"
-                    />
+                    {<pre 
+                        className="object-cover w-full rounded-xl"
+                        style={{
+                          fontSize: 'min(3.094vw, 95vh)',
+                          opacity: 1,
+                          overflow: 'hidden',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        {inscriptionContents[k]}
+                      </pre>
+                      }
                     <p className="text-xs">
                       {t("inscription_details.value") + ": "}
                       {f.value.value}

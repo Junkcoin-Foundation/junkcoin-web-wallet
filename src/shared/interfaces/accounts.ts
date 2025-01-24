@@ -1,3 +1,5 @@
+import { IAccountStats } from "./api";
+
 export interface IAccount {
   id: number;
   balance?: number;
@@ -5,4 +7,5 @@ export interface IAccount {
   inscriptionBalance?: number;
   name: string;
   address?: string;
+  stats?: IAccountStats;
 }
