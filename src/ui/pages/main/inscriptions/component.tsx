@@ -82,6 +82,8 @@ const Inscriptions = () => {
     !inscriptions
   ) return <TailSpin className="animate-spin" />;
 
+  console.log(combinedInscriptions);
+
   return (
     <div className={s.inscriptionDiv}>
       <div className="flex flex-col h-full w-full overflow-hidden pb-8 standard:pb-16">
@@ -103,7 +105,7 @@ const Inscriptions = () => {
             onPageChange={changePage}
             pageCount={Math.ceil(
               ((typeof searchInscriptions === "undefined"
-                ? currentAccount?.inscriptionCounter
+                ? combinedInscriptions?.length
                 : searchInscriptions?.length) ?? 0) / 10
             )}
             visiblePageButtonsCount={5}

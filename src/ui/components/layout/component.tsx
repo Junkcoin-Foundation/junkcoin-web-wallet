@@ -191,25 +191,25 @@ export default function PagesLayout() {
           title: (
             <div
               className="flex items-center gap-2 cursor-pointer"
-              onClick={() => {
-                if (currentRoute.pathname === "/pages/inscriptions") {
-                  navigate("/pages/bel-20");
-                } else {
-                  navigate("/pages/inscriptions");
-                }
-              }}
+              // onClick={() => {
+              //   if (currentRoute.pathname === "/pages/inscriptions") {
+              //     navigate("/pages/bel-20");
+              //   } else {
+              //     navigate("/pages/inscriptions");
+              //   }
+              // }}
             >
               <span>
                 {currentRoute.pathname === "/pages/inscriptions"
                   ? "Junkscriptions"
                   : "Junk-20"}
               </span>
-              <ArrowsUpDownIcon className="w-4 h-4" />
+              {/* <ArrowsUpDownIcon className="w-4 h-4" /> */}
             </div>
           ),
-          action: {
-            icon: <SearchInscriptions />,
-          },
+          // action: {
+          //   icon: <SearchInscriptions />,
+          // },
           backAction: () => {
             navigate("/home");
           },
