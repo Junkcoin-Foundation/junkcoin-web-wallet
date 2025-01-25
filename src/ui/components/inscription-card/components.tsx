@@ -1,14 +1,15 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { shortAddress } from "@/shared/utils/transactions";
-import { getContentUrl } from "@/shared/constant";
-import { useGetCurrentAccount } from "@/ui/states/walletState";
-import { useInscriptionManagerContext } from "@/ui/utils/inscriptions-ctx";
 
 interface Props {
   inscription: {
-    content: string;
     inscription_id: string;
+    junk20Data?: {
+      tick: string;
+      balance: string;
+      operation: string;
+    };
   };
 }
 
@@ -31,86 +32,103 @@ const InscriptionCard: FC<Props> = ({ inscription }) => {
   const navigate = useNavigate();
   const [content, setContent] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
+  const [inscriptionType, setInscriptionType] = useState<'junkinals' | 'junk20' | 'junkmap' | null>(null);
 
   const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (imageRef.current) {
-      if (imageRef.current.complete) {
-        applyPixelation(imageRef.current);
-      } else {
-        imageRef.current.onload = () => {
-          applyPixelation(imageRef.current!);
-        };
+    const fetchContent = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`https://ord.junkiewally.xyz/content/${inscription.inscription_id}`);
+        const data = await response.text();
+        
+        // Determine inscription type
+        if (data.includes('junk-20')) {
+          setInscriptionType('junk20');
+        } else if (data.endsWith('.junkmap')) {
+          setInscriptionType('junkmap');
+        } else {
+          setInscriptionType('junkinals');
+        }
+        
+        setContent(data);
+      } catch (error) {
+        console.error('Content fetch error:', error);
+      } finally {
+        setIsLoading(false);
       }
-    }
-  });
+    };
 
-  useEffect(() => {
-    try {
-      setIsLoading(true);
-      // Handle hex-encoded content if needed
-      const decodedContent = inscription.content.startsWith('7b') 
-        ? decodeHexString(inscription.content)
-        : inscription.content;
-      setContent(decodedContent);
-    } catch (error) {
-      console.error('Content decode error:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [inscription.content]);
+    fetchContent();
+  }, [inscription.inscription_id]);
 
-  const renderJunkContent = (content: string) => {
-    try {
-      const data = JSON.parse(content);
-      if (data.p === 'junk-20') {
+  const renderContent = () => {
+    if (inscriptionType === 'junkmap') {
+      return (
+        <div className="flex items-center justify-center h-full">
+          <div className="text-sm">
+            {content}
+          </div>
+        </div>
+      );
+    }
+
+    if (inscriptionType === 'junk20') {
+      try {
+        const data = inscription.junk20Data || JSON.parse(content);
         return (
           <div className="flex flex-col items-center justify-between h-full py-2">
             <div className="text-xs text-gray-400">
-              {data.p}
+              {data.operation || data.p}
             </div>
             <div className="flex flex-col items-center flex-grow justify-center">
               <div className="text-2xl font-bold">
                 {data.tick}
               </div>
               <div className="text-sm mt-1">
-                {data.amt}
+                {data.operation === 'deploy' ? 'deploy' : (data.balance || data.amt)}
               </div>
             </div>
             <div className="h-4" />
           </div>
         );
+      } catch (e) {
+        console.error('JSON parse error:', e);
+        return null;
       }
-      // If valid JSON but not junk-20, display centered
-      return (
-        <div className="flex items-center justify-center h-full">
-          <div className="text-sm">
-            {content}
-          </div>
-        </div>
-      );
-    } catch (e) {
-      // If not valid JSON, display centered
-      return (
-        <div className="flex items-center justify-center h-full">
-          <div className="text-sm">
-            {content}
-          </div>
-        </div>
-      );
     }
+
+    // For junkinals (images)
+    return (
+      <div 
+        className="h-full w-full [image-rendering:pixelated]"
+        style={{
+          backgroundImage: `url(https://ord.junkiewally.xyz/content/${inscription.inscription_id})`,
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          imageRendering: 'pixelated',
+        }}
+      >
+        <img 
+          src={`https://ord.junkiewally.xyz/content/${inscription.inscription_id}`}
+          alt="Inscription"
+          className="h-full w-full opacity-0"
+        />
+      </div>
+    );
   };
 
   return (
     <div className="flex justify-center w-full">
       <div
-        className="cursor-pointer flex flex-col justify-center align-center relative"
-        onClick={() => {
-          navigate("/pages/inscription-details", {
-            state: { inscription_id: inscription.inscription_id },
-          });
-        }}
+        className="flex flex-col justify-center align-center relative"
+        // onClick={() => {
+        //   navigate("/pages/inscription-details", {
+        //     state: { inscription_id: inscription.inscription_id },
+        //   });
+        // }}
       >
         <div className="rounded-xl w-full bg-slate-950 bg-opacity-50">
           {isLoading ? (
@@ -119,7 +137,7 @@ const InscriptionCard: FC<Props> = ({ inscription }) => {
             </div>
           ) : (
             <div className="h-38 w-38">
-              {renderJunkContent(content)}
+              {renderContent()}
             </div>
           )}
         </div>
