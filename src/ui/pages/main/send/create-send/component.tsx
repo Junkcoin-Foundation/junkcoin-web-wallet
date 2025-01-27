@@ -89,21 +89,21 @@ const CreateSend = () => {
       let data;
 
       try {
-        data = !inscriptionTransaction
-          ? await createTx(
-              address,
-              Number((amount * 10 ** 8).toFixed(0)),
-              feeRate,
-              includeFeeInAmount
-            )
-          : await createOrdTx(address, feeRate, inscription!);
+        // data = !inscriptionTransaction
+        //   ? await createTx(
+        //       address,
+        //       Number((amount * 10 ** 8).toFixed(0)),
+        //       feeRate,
+        //       includeFeeInAmount
+        //     )
+        //   : await createOrdTx(address, feeRate, inscription!);
 
-        // data = await createTx(
-        //   address,
-        //   Number((amount * 10 ** 8).toFixed(0)),
-        //   feeRate,
-        //   includeFeeInAmount
-        // );
+        data = await createTx(
+          address,
+          Number((amount * 10 ** 8).toFixed(0)),
+          feeRate,
+          includeFeeInAmount
+        );
       } catch (e) {
         const error = e as Error;
         if ("message" in error) {

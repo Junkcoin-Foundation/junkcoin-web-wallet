@@ -66,9 +66,9 @@ const useTransactionManager = (): TransactionManagerContextType | undefined => {
     if (data) setLastBlock(data);
   }, [apiController]);
 
-  // const updateFeeRates = useCallback(async () => {
-  //   setFeeRates(await apiController.getFees());
-  // }, [apiController]);
+  const updateFeeRates = useCallback(async () => {
+    setFeeRates(await apiController.getFees());
+  }, [apiController]);
 
   const updatePrice = useCallback(async () => {
     const data = await apiController.getJKCPrice();
@@ -114,7 +114,7 @@ const useTransactionManager = (): TransactionManagerContextType | undefined => {
       await Promise.all([
         updateTransactions(currentAccount.address!),
         updateLastBlock(),
-        // updateFeeRates(),
+        updateFeeRates(),
         updatePrice(),
       ]);
     }, 10000);
@@ -123,7 +123,7 @@ const useTransactionManager = (): TransactionManagerContextType | undefined => {
     };
   }, [
     currentAccount?.address,
-    // updateFeeRates,
+    updateFeeRates,
     updateLastBlock,
     updatePrice,
     updateTransactions,
@@ -132,7 +132,7 @@ const useTransactionManager = (): TransactionManagerContextType | undefined => {
   useEffect(() => {
     if (!isProxy(apiController)) return;
 
-    // updateFeeRates().catch(console.error);
+    updateFeeRates().catch(console.error);
     updateLastBlock().catch(console.error);
     updatePrice().catch(console.error);
   }, [apiController, updateLastBlock, updatePrice, network]);
